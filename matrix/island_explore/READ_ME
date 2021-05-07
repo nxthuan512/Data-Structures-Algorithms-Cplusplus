@@ -1,0 +1,23 @@
+PROBLEM:
+  Given a MxN matrix containing either 0 or 1, where 0 and 1 are water and land tiles.
+  Multiple connected land tiles, in 4 directions up, down, left, and right, form a island. The island area is the number of connected tiles.
+  Determine whether a given coordinate is inside an island and explore the island area.
+  
+EXAMPLE:
+  The size of the matrix below is 4x4 (M=4 and N=4)
+  There are 3 islands.
+  If the coordinate is (1, 1), return 0 as the coordinate points to water tile.
+  If the coordinate is (2, 1), return 4 as the coordinate points to an island with area of 4 tiles.
+
+    0   1   2   3   4
+	+---+---+---+---+---+
+0	| 0 | 0 | 0 | 0 | 0 |
+	+---+---+---+---+---+
+1	| 0 | 0 | 1 | 1 | 0 |
+	+---+---+---+---+---+
+2	| 0 | 0 | 1 | 1 | 0 |
+	+---+---+---+---+---+
+3	| 0 | 1 | 0 | 0 | 0 |
+	+---+---+---+---+---+
+4	| 0 | 0 | 1 | 0 | 0 |
+	+---+---+---+---+---+
