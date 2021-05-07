@@ -1,2 +1,2 @@
-# dsa
-Data structure &amp; Algorithms
+# Data Structure and Algorithms
+A collection of some fun data structure and algorithms relating problems.
