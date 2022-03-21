@@ -1,2 +1,9 @@
-# Data Structure and Algorithms
-A collection of some fun data structure and algorithms relating problems.
+## Description
+A collection of many data structures and algorithms implemented in C++.
+
+## Contents
+### 1. cpp_challenges: 
+This directory includes the solutions of several section challenges in the [Beginning C++ Programming](https://intel.udemy.com/course/beginning-c-plus-plus-programming/learn/lecture/9535214#overview) course, instructed by Dr. Frank Mitropoulos.
+
+### 2. data_structure_algorithms:
+TBD
