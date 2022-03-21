@@ -3,28 +3,27 @@
 # ------------------------------------------------------------------
 
 # Define INC dir storing *.h files
-INCDIR = inc
+INCDIR 		= inc
 # Define SRC dir storing *.cpp files
-SRCDIR = src
+SRCDIR 		= src
 # Define LIB dir storing library files
-LDIR = lib
+LDIR 			= lib
 # Define OBJ dir storing *.o files
-ODIR = obj
-
+ODIR 			= obj
 # Define compiler and compiler flags
-CC = g++
-CFLAGS = -Wall -g -I$(INCDIR)
-
+CC 			= g++
+CFLAGS 		= -Wall -g -I$(INCDIR)
 # Include math library -lm
-LIBS=-lm
+LIBS			=-lm
+# Define Program name
+PROG_NAME 	= main
 
 # Define depedencies *.h
-_DEPS = main.h movie.h movies.h
-DEPS = $(patsubst %,$(INCDIR)/%,$(_DEPS))
-
+_DEPS 		= $(PROG_NAME).h movie.h movies.h
+DEPS 			= $(patsubst %,$(INCDIR)/%,$(_DEPS))
 # Define objects *.o
-_OBJ = main.o movie.o movies.o 
-OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
+_OBJ 			= $(PROG_NAME).o movie.o movies.o 
+OBJ 			= $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 # Generate all *.o files
 $(ODIR)/%.o: $(SRCDIR)/%.cpp $(DEPS)
@@ -35,8 +34,8 @@ main: $(OBJ)
 	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
 
 # Clean all objects
-.PHONY: clean
+.PHONY: all clean
 
 clean:
-	rm -f $(ODIR)/*.o $(INCDIR)/*~ *~ compile_command.json core .cache
+	rm -f $(ODIR)/*.o $(INCDIR)/*~ $(SRCDIR)/*~ *~ compile_commands.json core .cache $(PROG_NAME)
  
