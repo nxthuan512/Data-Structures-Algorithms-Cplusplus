@@ -1,0 +1,34 @@
+# Ignore all
+*
+
+# Unignore all with extensions
+!*.*
+
+# Unignore all dirs
+!*/
+
+### Above combination will ignore all files without extension ###
+
+# Ignore files with extension `.class` & `.sm`
+# *.class
+# *.sm
+
+# Unignore Makefile
+!Makefile
+
+# Ignore directory
+my_tools/*
+**/.cache
+
+# Ignore a file with extension
+**/shutdown_session.vim
+**/*.o
+
+# Unignore all `.jar` in `bin` dir
+# !*/bin/*.jar
+
+# Ignore all `library.jar` in `bin` dir
+# */bin/library.jar
+
+# Ignore a file without extension
+# relative/path/to/dir/anotherfile
