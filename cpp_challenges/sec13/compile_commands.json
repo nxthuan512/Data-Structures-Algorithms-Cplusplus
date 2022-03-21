@@ -1,0 +1,44 @@
+[
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-Wall",
+            "-g",
+            "-Iinc",
+            "-o",
+            "obj/movie.o",
+            "src/movie.cpp"
+        ],
+        "directory": "/home/nxthuan512/xt_projects/cpp_beginner/sec13",
+        "file": "src/movie.cpp"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-Wall",
+            "-g",
+            "-Iinc",
+            "-o",
+            "obj/main.o",
+            "src/main.cpp"
+        ],
+        "directory": "/home/nxthuan512/xt_projects/cpp_beginner/sec13",
+        "file": "src/main.cpp"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-Wall",
+            "-g",
+            "-Iinc",
+            "-o",
+            "obj/movies.o",
+            "src/movies.cpp"
+        ],
+        "directory": "/home/nxthuan512/xt_projects/cpp_beginner/sec13",
+        "file": "src/movies.cpp"
+    }
+]
