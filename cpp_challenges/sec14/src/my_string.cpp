@@ -57,5 +57,64 @@ my_string my_string::operator-() const {
    return new_string;
 }
 
+// Operator ==, !=, <, >
+bool my_string::operator==(const my_string &that_str) const {
+   printf ("XT_DEBUG: Calling operator ==\n");
+   int n1 = strlen(str)+1;
+   int n2 = strlen(that_str.str)+1;
+   if (n1 != n2) {
+      return false;
+   } else {
+      if (strcmp(str, that_str.str) == 0)
+         return true;
+      else 
+         return false;
+   }
+}
 
+bool my_string::operator!=(const my_string &that_str) const {
+   printf ("XT_DEBUG: Calling operator !=\n");
+   int n1 = strlen(str)+1;
+   int n2 = strlen(that_str.str)+1;
+   if (n1 != n2) {
+      return true;
+   } else {
+      if (strcmp(str, that_str.str) != 0)
+         return true;
+      else 
+         return false;
+   }
+}
+
+bool my_string::operator>(const my_string &that_str) const {
+   printf ("XT_DEBUG: Calling operator >\n");
+   int n1 = strlen(str)+1;
+   int n2 = strlen(that_str.str)+1;
+   if (n1 > n2) {
+      return true;
+   } else if (n1 < n2) {
+      return false;
+   } else {      
+      if (strcmp(str, that_str.str) > 0)
+         return true;
+      else 
+         return false;
+   }
+}
+
+bool my_string::operator<(const my_string &that_str) const {
+   printf ("XT_DEBUG: Calling operator <\n");
+   int n1 = strlen(str)+1;
+   int n2 = strlen(that_str.str)+1;
+   if (n1 < n2) {
+      return true;
+   } else if (n1 > n2) {
+      return false;
+   } else {
+      if (strcmp(str, that_str.str) < 0)
+         return true;
+      else 
+         return false;
+   }
+}
 //

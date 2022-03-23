@@ -22,12 +22,29 @@ void display_string(const std::vector<my_string> &list_str) {
 int main() {
    std::vector <my_string> list_str;
 
-   add_string(list_str, "Starwars");
+   add_string(list_str, "Starwars Collections");
    add_string(list_str, "Return of the Jedi");
-   add_string(list_str, "The clone wars");
+   add_string(list_str, "A New Hope");
    
+   // Test 1
    my_string tmp_str = -list_str.at(0);
    add_string(list_str, tmp_str.content());
+
+   // Test 2
+   for (const auto &istr:list_str) {
+      if (list_str.at(0) == istr) {
+         std::cout << list_str.at(0).content() << " is equal to " << istr.content() << std::endl;
+      } else if (list_str.at(0) != istr) {
+         std::cout << list_str.at(0).content() << " is not equal to " << istr.content() << std::endl;
+         if (list_str.at(0) > istr) {
+            std::cout << list_str.at(0).content() << " is greater than " << istr.content() << std::endl;
+         } else if (list_str.at(0) < istr) {
+            std::cout << list_str.at(0).content() << " is smaller than " << istr.content() << std::endl;
+         }     
+      }
+   }
+   std::cout << std::endl;
+
 
    display_string(list_str);
 

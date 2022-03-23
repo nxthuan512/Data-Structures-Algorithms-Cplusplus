@@ -23,8 +23,11 @@ class my_string {
       char *content() const;
 
       // -, ==, !=, <, >, +, +=, *, *=, A++, ++A, A--, --A
-      // Unary minus
       my_string operator-() const;
+      bool operator==(const my_string &) const;
+      bool operator!=(const my_string &) const;
+      bool operator>(const my_string &) const;
+      bool operator<(const my_string &) const;
 };
 
 
