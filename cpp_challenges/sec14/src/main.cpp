@@ -23,6 +23,7 @@ int main() {
    std::vector <my_string> list_str;
 
    add_string(list_str, "Starwars Collections");
+   add_string(list_str, "Episode VI: ");
    add_string(list_str, "Return of the Jedi");
    add_string(list_str, "A New Hope");
    
@@ -45,6 +46,12 @@ int main() {
    }
    std::cout << std::endl;
 
+   // Test 3
+   my_string tmp_str_1 = list_str.at(1) + list_str.at(2);
+   add_string(list_str, tmp_str_1.content());
+
+   tmp_str_1 = list_str.at(1) + "Darth Vader died";
+   add_string(list_str, tmp_str_1.content());
 
    display_string(list_str);
 
