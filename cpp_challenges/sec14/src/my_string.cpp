@@ -168,3 +168,36 @@ my_string my_string::operator+(const char *that_string) const {
    delete [] sum_str;
    return sum_string;
 }
+
+// Operator +=/*=
+my_string &my_string::operator+=(const my_string &that_string) {
+   printf ("XT_DEBUG: Calling operator +=\n");
+   int n1 = strlen(str) + 1;
+   int n2 = strlen(that_string.str) + 1;
+   int n = n1 + n2 - 1;
+
+   char *sum_str = new char [n];
+   strcpy(sum_str, str);
+   strcat(sum_str, that_string.str);
+
+   str = sum_str;
+   sum_str = nullptr;
+   return *this;
+}
+
+// Operator A++/++A
+my_string &my_string::operator++() {
+   printf ("XT_DEBUG: Calling operator ++A\n");
+   int n = strlen(str)+1;
+   for (int i = 0; i < n; ++i) {
+      str[i] = toupper(str[i]);
+   }
+   return *this;
+}
+
+my_string my_string::operator++(int) {
+   printf ("XT_DEBUG: Calling operator A++\n");
+   my_string new_string (*this);
+   operator++();
+   return new_string;
+}

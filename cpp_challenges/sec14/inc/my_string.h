@@ -37,6 +37,9 @@ class my_string {
       my_string operator+(const my_string &) const;
       my_string operator+(const char *) const;
       my_string operator*(const my_string &) const;
+      my_string &operator+=(const my_string &);
+      my_string &operator++();
+      my_string operator++(int);
 };
 
 

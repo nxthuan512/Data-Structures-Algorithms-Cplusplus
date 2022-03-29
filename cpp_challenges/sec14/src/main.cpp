@@ -25,7 +25,8 @@ int main() {
    add_string(list_str, "Starwars Collections");
    add_string(list_str, "Episode VI: ");
    add_string(list_str, "Return of the Jedi");
-   add_string(list_str, "A New Hope");
+   add_string(list_str, "A New Hope: ");
+   add_string(list_str, "Obiwan Kenobi died");
    
    // Test 1
    my_string tmp_str = -list_str.at(0);
@@ -52,6 +53,14 @@ int main() {
 
    tmp_str_1 = list_str.at(1) + "Darth Vader died";
    add_string(list_str, tmp_str_1.content());
+
+   // Test 4
+   list_str.at(3)+=list_str.at(4);
+
+   // Test 5
+   list_str.push_back(++list_str.at(3));
+   list_str.push_back(list_str.at(4)++);
+   list_str.push_back(list_str.at(4));
 
    display_string(list_str);
 

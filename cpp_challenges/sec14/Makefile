@@ -37,5 +37,5 @@ main: $(OBJ)
 .PHONY: all clean
 
 clean:
-	rm -f $(ODIR)/*.o $(INCDIR)/*~ $(SRCDIR)/*~ *~ compile_commands.json core .cache $(PROG_NAME)
+	rm -rf $(ODIR)/*.o $(INCDIR)/*~ $(SRCDIR)/*~ *~ compile_commands.json core .cache $(PROG_NAME)
  

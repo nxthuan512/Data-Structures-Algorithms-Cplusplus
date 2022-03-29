@@ -7,11 +7,11 @@
             "-g",
             "-Iinc",
             "-o",
-            "obj/my_string.o",
-            "src/my_string.cpp"
+            "obj/main.o",
+            "src/main.cpp"
         ],
         "directory": "/home/nxthuan512/xt_projects/cpp_and_dsa/cpp_challenges/sec14",
-        "file": "src/my_string.cpp"
+        "file": "src/main.cpp"
     },
     {
         "arguments": [
@@ -21,10 +21,10 @@
             "-g",
             "-Iinc",
             "-o",
-            "obj/main.o",
-            "src/main.cpp"
+            "obj/my_string.o",
+            "src/my_string.cpp"
         ],
         "directory": "/home/nxthuan512/xt_projects/cpp_and_dsa/cpp_challenges/sec14",
-        "file": "src/main.cpp"
+        "file": "src/my_string.cpp"
     }
 ]
