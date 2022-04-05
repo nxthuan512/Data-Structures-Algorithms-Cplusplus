@@ -1,0 +1,72 @@
+[
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-Wall",
+            "-g",
+            "-Iinc",
+            "-o",
+            "obj/savings_account.o",
+            "src/savings_account.cpp"
+        ],
+        "directory": "/home/nxthuan512/xt_projects/cpp_and_dsa/cpp_challenges/sec15",
+        "file": "src/savings_account.cpp"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-Wall",
+            "-g",
+            "-Iinc",
+            "-o",
+            "obj/trust_account.o",
+            "src/trust_account.cpp"
+        ],
+        "directory": "/home/nxthuan512/xt_projects/cpp_and_dsa/cpp_challenges/sec15",
+        "file": "src/trust_account.cpp"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-Wall",
+            "-g",
+            "-Iinc",
+            "-o",
+            "obj/main.o",
+            "src/main.cpp"
+        ],
+        "directory": "/home/nxthuan512/xt_projects/cpp_and_dsa/cpp_challenges/sec15",
+        "file": "src/main.cpp"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-Wall",
+            "-g",
+            "-Iinc",
+            "-o",
+            "obj/chequing_account.o",
+            "src/chequing_account.cpp"
+        ],
+        "directory": "/home/nxthuan512/xt_projects/cpp_and_dsa/cpp_challenges/sec15",
+        "file": "src/chequing_account.cpp"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-Wall",
+            "-g",
+            "-Iinc",
+            "-o",
+            "obj/account.o",
+            "src/account.cpp"
+        ],
+        "directory": "/home/nxthuan512/xt_projects/cpp_and_dsa/cpp_challenges/sec15",
+        "file": "src/account.cpp"
+    }
+]
