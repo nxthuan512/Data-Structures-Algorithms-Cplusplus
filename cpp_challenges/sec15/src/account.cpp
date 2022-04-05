@@ -18,6 +18,7 @@ bool account::deposit(double amount) {
       printf ("XT_DEBUG: Amount must be positive: amount=%.1f\n", amount);
       return false;
    } else {
+      printf ("XT_DEBUG: Deposit an amount=%.1f\n", amount);
       balance += amount;
       return true;
    }

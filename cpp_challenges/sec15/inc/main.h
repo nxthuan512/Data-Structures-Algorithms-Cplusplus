@@ -11,5 +11,6 @@
 void get_all_balances(const std::vector<account> &);
 void get_all_balances(const std::vector<savings_account> &);
 void get_all_balances(const std::vector<chequing_account> &);
+void get_all_balances(const std::vector<trust_account> &);
 
 #endif /* MAIN_H */

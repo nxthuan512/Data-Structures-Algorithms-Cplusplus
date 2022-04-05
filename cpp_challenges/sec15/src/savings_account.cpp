@@ -12,10 +12,11 @@ savings_account::~savings_account() {
 
 bool savings_account::deposit (double amount) {
    if (amount < 0) {
-      printf ("XT_DEBUG: Amount must be positive: amout=%.1f\n", amount);
+      printf ("XT_DEBUG: Amount must be positive: amount=%.1f\n", amount);
       return false;
    } else {
       amount += (amount * (rate/100));
+      printf ("XT_DEBUG: Rate=%.1f. Total savings amount=%.1f\n", rate, amount);
       return account::deposit(amount);
    }
 }
