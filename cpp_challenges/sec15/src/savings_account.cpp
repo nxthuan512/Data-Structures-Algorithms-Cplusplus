@@ -8,7 +8,7 @@ savings_account::savings_account(std::string new_name, double new_balance, doubl
 
 savings_account::~savings_account() {
    printf ("XT_DEBUG: Removed savings account name=%s\n", name.c_str());
-};
+}
 
 bool savings_account::deposit (double amount) {
    if (amount < 0) {

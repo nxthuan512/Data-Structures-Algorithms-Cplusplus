@@ -12,12 +12,15 @@ class trust_account: public savings_account {
 
    protected: 
       double bonus = def_bonus;
+      int n_withdraw = 0;
 
    public:
       trust_account(std::string name = def_name, double balance = def_balance, double rate = def_rate);
       ~trust_account();
       bool deposit(double amount);
       bool withdraw(double amount);
+      void increase_n_withdraw();
+      int get_n_withdraw();
 };
 
 

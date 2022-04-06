@@ -10,7 +10,7 @@ account::account(std::string new_name, double new_balance)
 
 account::~account() {
    printf ("XT_DEBUG: Removed account name=%s\n", name.c_str());
-};
+}
 
 
 bool account::deposit(double amount) {
@@ -32,6 +32,7 @@ bool account::withdraw(double amount) {
       printf ("XT_DEBUG: Insufficient balance: balance=%.1f, amount=%.1f\n", balance, amount);
       return false;
    } else {
+      printf ("XT_DEBUG: Withdraw amount=%.1f\n", amount);
       balance -= amount;
       return true;
    }

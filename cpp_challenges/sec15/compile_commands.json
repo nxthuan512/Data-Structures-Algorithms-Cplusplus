@@ -4,20 +4,28 @@
             "g++",
             "-c",
             "-Wall",
+            "-Wextra",
+            "-Wshadow",
+            "-Wnon-virtual-dtor",
+            "-pedantic",
             "-g",
             "-Iinc",
             "-o",
-            "obj/savings_account.o",
-            "src/savings_account.cpp"
+            "obj/account.o",
+            "src/account.cpp"
         ],
         "directory": "/home/nxthuan512/xt_projects/cpp_and_dsa/cpp_challenges/sec15",
-        "file": "src/savings_account.cpp"
+        "file": "src/account.cpp"
     },
     {
         "arguments": [
             "g++",
             "-c",
             "-Wall",
+            "-Wextra",
+            "-Wshadow",
+            "-Wnon-virtual-dtor",
+            "-pedantic",
             "-g",
             "-Iinc",
             "-o",
@@ -32,6 +40,28 @@
             "g++",
             "-c",
             "-Wall",
+            "-Wextra",
+            "-Wshadow",
+            "-Wnon-virtual-dtor",
+            "-pedantic",
+            "-g",
+            "-Iinc",
+            "-o",
+            "obj/savings_account.o",
+            "src/savings_account.cpp"
+        ],
+        "directory": "/home/nxthuan512/xt_projects/cpp_and_dsa/cpp_challenges/sec15",
+        "file": "src/savings_account.cpp"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Wshadow",
+            "-Wnon-virtual-dtor",
+            "-pedantic",
             "-g",
             "-Iinc",
             "-o",
@@ -46,6 +76,10 @@
             "g++",
             "-c",
             "-Wall",
+            "-Wextra",
+            "-Wshadow",
+            "-Wnon-virtual-dtor",
+            "-pedantic",
             "-g",
             "-Iinc",
             "-o",
@@ -54,19 +88,5 @@
         ],
         "directory": "/home/nxthuan512/xt_projects/cpp_and_dsa/cpp_challenges/sec15",
         "file": "src/chequing_account.cpp"
-    },
-    {
-        "arguments": [
-            "g++",
-            "-c",
-            "-Wall",
-            "-g",
-            "-Iinc",
-            "-o",
-            "obj/account.o",
-            "src/account.cpp"
-        ],
-        "directory": "/home/nxthuan512/xt_projects/cpp_and_dsa/cpp_challenges/sec15",
-        "file": "src/account.cpp"
     }
 ]

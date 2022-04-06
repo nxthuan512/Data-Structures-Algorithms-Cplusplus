@@ -64,7 +64,16 @@ int main()
 
    jedi_trust_acc.at(0).deposit(9533.6);
    jedi_trust_acc.at(1).deposit(3265.4);
+   get_all_balances(jedi_trust_acc);
 
+   jedi_trust_acc.at(1).withdraw(2000);
+   jedi_trust_acc.at(1).withdraw(500);
+   get_all_balances(jedi_trust_acc);
+
+   jedi_trust_acc.at(0).withdraw(40);
+   jedi_trust_acc.at(0).withdraw(50);
+   jedi_trust_acc.at(0).withdraw(60);
+   jedi_trust_acc.at(0).withdraw(70);
    get_all_balances(jedi_trust_acc);
    std::cout << "=================" << std::endl;
 

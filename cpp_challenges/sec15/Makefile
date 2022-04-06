@@ -12,7 +12,7 @@ LDIR 			= lib
 ODIR 			= obj
 # Define compiler and compiler flags
 CC 			= g++
-CFLAGS 		= -Wall -g -I$(INCDIR)
+CFLAGS 		= -Wunused -Wall -Wextra -Wshadow -Wnon-virtual-dtor -pedantic -g -I$(INCDIR)
 # Include math library -lm
 LIBS			=-lm
 # Define Program name
@@ -37,5 +37,5 @@ main: $(OBJ)
 .PHONY: all clean
 
 clean:
-	rm -rf $(ODIR)/*.o $(INCDIR)/*~ $(SRCDIR)/*~ *~ compile_commands.json core .cache $(PROG_NAME)
+	rm -rf $(ODIR)/*.o $(INCDIR)/*~ $(SRCDIR)/*~ *~ core .cache $(PROG_NAME)
  

@@ -9,7 +9,7 @@ trust_account::trust_account(std::string new_name, double new_balance, double ne
 
 trust_account::~trust_account() {
    printf ("XT_DEBUG: Removed trust account name=%s\n", name.c_str());
-};
+}
 
 bool trust_account::deposit (double amount) {
    if (amount < 0) {
@@ -26,12 +26,22 @@ bool trust_account::deposit (double amount) {
 }
 
 bool trust_account::withdraw(double amount) {
-   static int n_withdraw = 1;
-   if (n_withdraw < 4) {
-      return savings_account::withdraw(amount);
-   } else {
+   increase_n_withdraw();
+   if (get_n_withdraw() >= 4) {
       printf ("XT_DEBUG: Cannot withdraw because you withdrawed more than 3 times per year\n");
       return false;
+   } else if (amount > 0.2*get_balance()) {
+      printf ("XT_DEBUG: Cannot withdraw amount > 20%% of balance: amount=%.1f, 20%%*balance=%.1f\n", amount, balance*0.2);
+      return false;
+   } else {
+      return savings_account::withdraw(amount);
    }
 }
 
+void trust_account::increase_n_withdraw() {
+   ++n_withdraw;
+}
+
+int trust_account::get_n_withdraw() {
+   return (n_withdraw);
+}
