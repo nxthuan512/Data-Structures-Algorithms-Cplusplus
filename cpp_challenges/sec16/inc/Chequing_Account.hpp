@@ -1,0 +1,6 @@
+#ifndef CHEQUING_ACCOUNT_HPP
+#define CHEQUING_ACCOUNT_HPP
+
+
+
+#endif /* CHEQUING_ACCOUNT_HPP */

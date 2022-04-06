@@ -1,0 +1,6 @@
+#ifndef TRUST_ACCOUNT_HPP
+#define TRUST_ACCOUNT_HPP
+
+
+
+#endif /* TRUST_ACCOUNT_HPP */
