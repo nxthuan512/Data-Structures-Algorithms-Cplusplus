@@ -12,11 +12,11 @@
             "-g",
             "-Iinc",
             "-o",
-            "obj/main.o",
-            "src/main.cpp"
+            "obj/Chequing_Account.o",
+            "src/Chequing_Account.cpp"
         ],
         "directory": "/home/nxthuan512/xt_projects/cpp_and_dsa/cpp_challenges/sec16",
-        "file": "src/main.cpp"
+        "file": "src/Chequing_Account.cpp"
     },
     {
         "arguments": [
@@ -31,11 +31,30 @@
             "-g",
             "-Iinc",
             "-o",
-            "obj/Savings_Account.o",
-            "src/Savings_Account.cpp"
+            "obj/I_Printable.o",
+            "src/I_Printable.cpp"
         ],
         "directory": "/home/nxthuan512/xt_projects/cpp_and_dsa/cpp_challenges/sec16",
-        "file": "src/Savings_Account.cpp"
+        "file": "src/I_Printable.cpp"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-Wunused",
+            "-Wall",
+            "-Wextra",
+            "-Wshadow",
+            "-Wnon-virtual-dtor",
+            "-pedantic",
+            "-g",
+            "-Iinc",
+            "-o",
+            "obj/main.o",
+            "src/main.cpp"
+        ],
+        "directory": "/home/nxthuan512/xt_projects/cpp_and_dsa/cpp_challenges/sec16",
+        "file": "src/main.cpp"
     },
     {
         "arguments": [
@@ -88,10 +107,10 @@
             "-g",
             "-Iinc",
             "-o",
-            "obj/Chequing_Account.o",
-            "src/Chequing_Account.cpp"
+            "obj/Savings_Account.o",
+            "src/Savings_Account.cpp"
         ],
         "directory": "/home/nxthuan512/xt_projects/cpp_and_dsa/cpp_challenges/sec16",
-        "file": "src/Chequing_Account.cpp"
+        "file": "src/Savings_Account.cpp"
     }
 ]

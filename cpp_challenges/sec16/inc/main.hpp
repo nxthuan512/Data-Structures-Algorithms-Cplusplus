@@ -6,4 +6,6 @@
 #include <iostream>
 #include <vector>
 
+void display_accounts(const std::vector<Account *> &);
+
 #endif /* MAIN_HPP */
