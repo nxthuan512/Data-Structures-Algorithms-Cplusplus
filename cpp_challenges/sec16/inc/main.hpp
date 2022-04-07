@@ -2,6 +2,7 @@
 #define MAIN_HPP
 
 #include "Chequing_Account.hpp"
+#include "Savings_Account.hpp"
 #include <iostream>
 #include <vector>
 

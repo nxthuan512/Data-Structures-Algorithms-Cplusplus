@@ -20,9 +20,8 @@ public:
    Chequing_Account(std::string t_name = def_name, double t_balance = def_balance, double t_withdraw_fee = def_withdraw_fee);
    virtual bool deposit(double t_amount) override;
    virtual bool withdraw(double t_amount) override;
-   // virtual void print(std::ostream &t_string) const override;
+   virtual void print(std::ostream &t_string) const override;
    virtual ~Chequing_Account() = default;
-
 };
 
 

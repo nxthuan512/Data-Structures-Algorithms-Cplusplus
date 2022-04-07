@@ -23,7 +23,12 @@ bool Account::withdraw(double t_amount) {
       printf ("XT_DEBUG: Amount must be smaller than balance: amount=%.1f, balance=%.1f\n", t_amount, m_balance);
       return false;
    } else {
-      m_balance += t_amount;
+      m_balance -= t_amount;
       return true;
    }
+}
+
+void Account::print(std::ostream &t_string) const {
+   t_string.precision(2);
+   t_string << "XT_DEBUG: Print Account: name=" << m_name << ", balance=" << m_balance;
 }

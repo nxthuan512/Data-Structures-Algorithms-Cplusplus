@@ -5,8 +5,7 @@
 #include <ostream>
 #include <string>
 
-class Account {
-// class Account: public I_Printable {
+class Account: public I_Printable {
 private:
    static constexpr const char *def_name {"Unnamed Account"};
    static constexpr const double def_balance {0.0};
@@ -19,7 +18,7 @@ public:
    Account(std::string t_name = def_name, double t_balance = def_balance);
    virtual bool deposit(double t_amount) = 0;
    virtual bool withdraw(double t_amount) = 0;
-   // virtual void print(std::ostream &) const override;
+   virtual void print(std::ostream &t_string) const override;
    virtual ~Account() = default;
 };
 

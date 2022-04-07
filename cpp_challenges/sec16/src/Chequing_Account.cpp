@@ -11,11 +11,11 @@ bool Chequing_Account::deposit(double t_amount) {
 }
 
 bool Chequing_Account::withdraw(double t_amount) {
-   t_amount += def_withdraw_fee;
+   t_amount += m_withdraw_fee;
    return Account::withdraw(t_amount);
 }
 
-// void Chequing_Account::print(std::ostream &t_string) const {
-//    t_string << "XT_DEBUG: Print Chequing_Account";
-//    // t_string << "XT_DEBUG: Print Chequing_Account: name=" << m_name << ", balance=" << m_balance << std::endl;
-// }
+void Chequing_Account::print(std::ostream &t_string) const {
+   // t_string.precision(2);
+   t_string << "XT_DEBUG: Print Chequing_Account: name=" << Account::m_name << ", balance=" << Account::m_balance;
+}
