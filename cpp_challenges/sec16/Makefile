@@ -19,10 +19,10 @@ LIBS			=-lm
 PROG_NAME 	= main
 
 # Define depedencies *.h
-_DEPS 		= $(PROG_NAME).hpp Account.hpp Savings_Account.hpp Chequing_Account.hpp Trust_Account.hpp
+_DEPS 		= $(PROG_NAME).hpp Account.hpp Savings_Account.hpp Chequing_Account.hpp Trust_Account.hpp I_Printable.hpp
 DEPS 			= $(patsubst %,$(INCDIR)/%,$(_DEPS))
 # Define objects *.o
-_OBJ 			= $(PROG_NAME).o Account.o Savings_Account.o Chequing_Account.o Trust_Account.o
+_OBJ 			= $(PROG_NAME).o Account.o Savings_Account.o Chequing_Account.o Trust_Account.o I_Printable.o
 OBJ 			= $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 # Generate all *.o files

@@ -1,29 +1,21 @@
 #include "Chequing_Account.hpp"
+#include <ostream>
 
-Chequing_Account::Chequing_Account(std::string t_name, double t_balance)
-   : m_name(t_name), m_balance(t_balance) {
-      printf ("XT_DEBUG: Created Chequing_Account: name=%s, balance=%.1f\n", m_name.c_str(), m_balance);
+Chequing_Account::Chequing_Account(std::string t_name, double t_balance, double t_withdraw_fee)
+   : Account {t_name, t_balance}, m_withdraw_fee {t_withdraw_fee} {
+      printf ("XT_DEBUG: Created Chequing_Account: name=%s, balance=%.1f, withdraw fee=%.1f\n", Account::m_name.c_str(), Account::m_balance, m_withdraw_fee);
 }
 
 bool Chequing_Account::deposit(double t_amount) {
-   if (t_amount < 0) {
-      printf ("XT_DEBUG: Amount must be positive: amount=%.1f\n", t_amount);
-      return false;
-   } else {
-      m_balance += t_amount;
-      return true;
-   }
+   return Account::deposit(t_amount);
 }
 
 bool Chequing_Account::withdraw(double t_amount) {
-   if (t_amount < 0) {
-      printf ("XT_DEBUG: Amount must be positive: amount=%.1f\n", t_amount);
-      return false;
-   } else if (t_amount > m_balance) {
-      printf ("XT_DEBUG: Amount must be smaller than balance: amount=%.1f, balance=%.1f\n", t_amount, m_balance);
-      return false;
-   } else {
-      m_balance += t_amount;
-      return true;
-   }
+   t_amount += def_withdraw_fee;
+   return Account::withdraw(t_amount);
 }
+
+// void Chequing_Account::print(std::ostream &t_string) const {
+//    t_string << "XT_DEBUG: Print Chequing_Account";
+//    // t_string << "XT_DEBUG: Print Chequing_Account: name=" << m_name << ", balance=" << m_balance << std::endl;
+// }
