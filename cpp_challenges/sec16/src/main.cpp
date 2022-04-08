@@ -2,7 +2,7 @@
 
 void display_accounts(const std::vector<Account *> &accounts) {
    std::cout << "Print all accounts" << std::endl;
-   for (auto acc : accounts) {
+   for (const auto acc : accounts) {
       std::cout << *acc << std::endl;
    }
 }
