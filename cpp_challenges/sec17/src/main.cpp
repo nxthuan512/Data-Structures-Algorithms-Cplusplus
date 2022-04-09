@@ -1,20 +1,21 @@
 #include "main.hpp"
 #include <memory>
 
-std::unique_ptr<std::vector<std::shared_ptr<Test>>> make() {
-   std::shared_ptr<Test> test = std::make_shared<Test>();
-   std::vector<std::shared_ptr<Test>> vec_test;
-   std::unique_ptr<std::vector<std::shared_ptr<Test>>> vec_test_ptr = std::make_unique<std::vector<std::shared_ptr<Test>>>();
-   return vec_test_ptr;
+// std::unique_ptr<std::vector<std::shared_ptr<Test>>> make() {
+auto make() {
+   std::cout << "\tXT_DEBUG: Call make()" << std::endl;
+   return std::make_unique<std::vector<std::shared_ptr<Test>>>();
 }
 
 void fill(std::vector<std::shared_ptr<Test>> &vec_ptr, int num) {
+   std::cout << "\tXT_DEBUG: Call fill()" << std::endl;
    for (int i = 0; i < num; ++i) {
       vec_ptr.push_back(std::make_shared<Test>(std::to_string(i+10), 100+i*10));
    }
 }
 
 void display(std::vector<std::shared_ptr<Test>> &vec_ptr) {
+   std::cout << "\tXT_DEBUG: Call display()" << std::endl;
    for (const auto &vec : vec_ptr) {
       vec->get_info();
    }
@@ -40,10 +41,10 @@ int main() {
    // Main challenge
    std::cout << "========================" << std::endl;
    std::unique_ptr<std::vector<std::shared_ptr<Test>>> vec_ptr;
+
    vec_ptr = make();
-   // std::cout << "How many data points do you want to enter: ";
+   
    int num = 5;
-   // std::cin >> num;
    fill(*vec_ptr, num);
    display(*vec_ptr);
 

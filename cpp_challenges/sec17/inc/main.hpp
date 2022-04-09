@@ -5,7 +5,7 @@
 #include <vector>
 #include "test.hpp"
 
-std::unique_ptr<std::vector<std::shared_ptr<Test>>> make();
+auto make();
 void fill(std::vector<std::shared_ptr<Test>> &, int);
 void display(std::vector<std::shared_ptr<Test>> &);
 
