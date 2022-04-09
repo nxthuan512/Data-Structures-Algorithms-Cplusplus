@@ -9,9 +9,8 @@ private:
    std::string m_id;
    int m_data;
 public:
-   Test();
    Test(std::string m_id = "Unknown", int m_data = 0);
-   int get_data() const;
+   void get_info() const;
    ~Test();
 };
 
