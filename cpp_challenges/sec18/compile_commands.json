@@ -1,0 +1,116 @@
+[
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-Wunused",
+            "-Wall",
+            "-Wextra",
+            "-Wshadow",
+            "-Wnon-virtual-dtor",
+            "-pedantic",
+            "-g",
+            "-Iinc",
+            "-o",
+            "obj/Account.o",
+            "src/Account.cpp"
+        ],
+        "directory": "/home/nxthuan512/xt_projects/cpp_and_dsa/cpp_challenges/sec18",
+        "file": "src/Account.cpp"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-Wunused",
+            "-Wall",
+            "-Wextra",
+            "-Wshadow",
+            "-Wnon-virtual-dtor",
+            "-pedantic",
+            "-g",
+            "-Iinc",
+            "-o",
+            "obj/main.o",
+            "src/main.cpp"
+        ],
+        "directory": "/home/nxthuan512/xt_projects/cpp_and_dsa/cpp_challenges/sec18",
+        "file": "src/main.cpp"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-Wunused",
+            "-Wall",
+            "-Wextra",
+            "-Wshadow",
+            "-Wnon-virtual-dtor",
+            "-pedantic",
+            "-g",
+            "-Iinc",
+            "-o",
+            "obj/Chequing_Account.o",
+            "src/Chequing_Account.cpp"
+        ],
+        "directory": "/home/nxthuan512/xt_projects/cpp_and_dsa/cpp_challenges/sec18",
+        "file": "src/Chequing_Account.cpp"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-Wunused",
+            "-Wall",
+            "-Wextra",
+            "-Wshadow",
+            "-Wnon-virtual-dtor",
+            "-pedantic",
+            "-g",
+            "-Iinc",
+            "-o",
+            "obj/My_Exceptions.o",
+            "src/My_Exceptions.cpp"
+        ],
+        "directory": "/home/nxthuan512/xt_projects/cpp_and_dsa/cpp_challenges/sec18",
+        "file": "src/My_Exceptions.cpp"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-Wunused",
+            "-Wall",
+            "-Wextra",
+            "-Wshadow",
+            "-Wnon-virtual-dtor",
+            "-pedantic",
+            "-g",
+            "-Iinc",
+            "-o",
+            "obj/I_Printable.o",
+            "src/I_Printable.cpp"
+        ],
+        "directory": "/home/nxthuan512/xt_projects/cpp_and_dsa/cpp_challenges/sec18",
+        "file": "src/I_Printable.cpp"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-Wunused",
+            "-Wall",
+            "-Wextra",
+            "-Wshadow",
+            "-Wnon-virtual-dtor",
+            "-pedantic",
+            "-g",
+            "-Iinc",
+            "-o",
+            "obj/Savings_Account.o",
+            "src/Savings_Account.cpp"
+        ],
+        "directory": "/home/nxthuan512/xt_projects/cpp_and_dsa/cpp_challenges/sec18",
+        "file": "src/Savings_Account.cpp"
+    }
+]
