@@ -1,0 +1,21 @@
+[
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-Wunused",
+            "-Wall",
+            "-Wextra",
+            "-Wshadow",
+            "-Wnon-virtual-dtor",
+            "-pedantic",
+            "-g",
+            "-Iinc",
+            "-o",
+            "obj/main.o",
+            "src/main.cpp"
+        ],
+        "directory": "/home/nxthuan512/xt_projects/cpp_and_dsa/cpp_challenges/sec20a",
+        "file": "src/main.cpp"
+    }
+]
