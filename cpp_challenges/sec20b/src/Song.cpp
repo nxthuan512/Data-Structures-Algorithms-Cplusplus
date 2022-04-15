@@ -11,14 +11,14 @@ std::string Song::get_details() const {
    return details;
 }
 
-bool Song::operator<(const Song &song) {
+bool Song::operator<(const Song &song) const {
    if (m_rating < song.m_rating)
       return true;
    else
       return false;
 }
 
-bool Song::operator==(const Song &song) {
+bool Song::operator==(const Song &song) const {
    if (m_rating == song.m_rating)
       return true;
    else

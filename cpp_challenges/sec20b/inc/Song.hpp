@@ -14,8 +14,8 @@ public:
    Song(std::string m_name = "Unknown", std::string m_singer = "Unknown", int m_rating = 0);
    ~Song();
    std::string get_details() const;
-   bool operator<(const Song &);
-   bool operator==(const Song &);
+   bool operator<(const Song &) const;
+   bool operator==(const Song &) const;
 };
 
 
