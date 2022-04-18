@@ -1,40 +1,57 @@
 #include "main.hpp"
 
 void update_dictionary(const int m_line_num, const std::string &m_line, std::map<std::string, int> &word_dict, std::map<std::string, std::set<int>> &word_dict2) {
-   std::string m_word = "";
-
-   for (const auto &m_char : m_line) {
+   // Solution which does use stringstream
+   std::string m_word;
+   std::stringstream ss(m_line);
+   while (ss >> m_word) {
       // Remove punctuations
-      if (m_char != ',' && m_char != '.' && m_char != ';' && m_char != ' ') {
-         m_word += m_char;
+      if (m_word.back() == ',' || m_word.back() == '.' || m_word.back() == ';') {
+         m_word.pop_back();
       }
-      // Conclude a word when hitting space
-      if (m_char == ' ' && m_word != "") {
-         // Update word_dict and word_dict2
-         if (m_word != " ") {
-            // Update the repetition in word_dict and occurences in word_dict2
-            if (word_dict.find(m_word) == word_dict.end()) {
-               word_dict[m_word] = 1;
-            } else {
-               word_dict[m_word]++;
-            }
-            word_dict2[m_word].insert(m_line_num);
-            m_word = "";
-         }
+      // Update the repetition in word_dict and occurences in word_dict2
+      if (word_dict.find(m_word) == word_dict.end()) {
+         word_dict[m_word] = 1;
+      } else {
+         word_dict[m_word]++;
       }
+      word_dict2[m_word].insert(m_line_num);
    }
-   // The word in the end of line
-   if (m_word != "") {
-      // Update the repetition
-      if (m_word != " ") {
-         if (word_dict.find(m_word) == word_dict.end()) {
-            word_dict[m_word] = 1;
-         } else {
-            word_dict[m_word]++;
-         }
-         word_dict2[m_word].insert(m_line_num);
-      }
-   }
+
+   // // Another solution which does not use stringstream
+   // std::string m_word = "";
+   // for (const auto &m_char : m_line) {
+   //    // Remove punctuations
+   //    if (m_char != ',' && m_char != '.' && m_char != ';' && m_char != ' ') {
+   //       m_word += m_char;
+   //    }
+   //    // Conclude a word when hitting space
+   //    if (m_char == ' ' && m_word != "") {
+   //       // Update word_dict and word_dict2
+   //       if (m_word != " ") {
+   //          // Update the repetition in word_dict and occurences in word_dict2
+   //          if (word_dict.find(m_word) == word_dict.end()) {
+   //             word_dict[m_word] = 1;
+   //          } else {
+   //             word_dict[m_word]++;
+   //          }
+   //          word_dict2[m_word].insert(m_line_num);
+   //          m_word = "";
+   //       }
+   //    }
+   // }
+   // // The word in the end of line
+   // if (m_word != "") {
+   //    // Update the repetition
+   //    if (m_word != " ") {
+   //       if (word_dict.find(m_word) == word_dict.end()) {
+   //          word_dict[m_word] = 1;
+   //       } else {
+   //          word_dict[m_word]++;
+   //       }
+   //       word_dict2[m_word].insert(m_line_num);
+   //    }
+   // }
 }
 
 int main() {
