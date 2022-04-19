@@ -18,7 +18,6 @@ std::ostream &operator<<(std::ostream &os, const std::vector<int> &vec) {
 void Sort::bubble_sort(std::vector<int> &vec, bool ascending) {
    if (ascending == true) {
       int updated_length = vec.size();
-      // std::cout << "XT_INFO: Sorting vector using Bubble Sort (ascending, length=" << updated_length << ")" << std::endl;
       bool is_sorted = true;
       do {
          for (int i = 0; i < updated_length - 1; ++i) {
@@ -58,8 +57,6 @@ auto Sort::quick_sort_rearrange(std::vector<int> &vec, int start_idx, int end_id
 
 void Sort::quick_sort(std::vector<int> &vec, int start_idx, int end_idx, bool ascending) {
    if (ascending == true) {
-      // std::cout << "XT_INFO: Sorting vector using Quick Sort (ascending, length=" << updated_length << ")" << std::endl;
-       
       if (start_idx < end_idx) {
          int idx = quick_sort_rearrange(vec, start_idx, end_idx);
          // std::cout << vec;
