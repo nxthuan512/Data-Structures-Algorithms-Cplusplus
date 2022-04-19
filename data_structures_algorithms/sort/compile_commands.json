@@ -1,0 +1,40 @@
+[
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-Wunused",
+            "-Wall",
+            "-Wextra",
+            "-Wshadow",
+            "-Wnon-virtual-dtor",
+            "-pedantic",
+            "-g",
+            "-Iinc",
+            "-o",
+            "obj/main.o",
+            "src/main.cpp"
+        ],
+        "directory": "/home/nxthuan512/xt_projects/cpp_and_dsa/data_structures_algorithms/sort",
+        "file": "src/main.cpp"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-Wunused",
+            "-Wall",
+            "-Wextra",
+            "-Wshadow",
+            "-Wnon-virtual-dtor",
+            "-pedantic",
+            "-g",
+            "-Iinc",
+            "-o",
+            "obj/Sort.o",
+            "src/Sort.cpp"
+        ],
+        "directory": "/home/nxthuan512/xt_projects/cpp_and_dsa/data_structures_algorithms/sort",
+        "file": "src/Sort.cpp"
+    }
+]
