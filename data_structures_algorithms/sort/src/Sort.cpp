@@ -40,6 +40,7 @@ auto Sort::quick_sort_rearrange(std::vector<int> &vec, int start_idx, int end_id
    // Pivot is the last vector element
    int pivot = vec.at(end_idx-1);
    auto tmp = vec.at(start_idx);
+   // std::cout << "XT_DEBUG: Pivot=" << pivot << " start_idx=" << start_idx << " end_idx=" << end_idx << std::endl;
    for (int idx = start_idx; idx < end_idx; ++idx) {
       if (vec.at(idx) < pivot) {
          // std::cout << "XT_DEBUG: Pivot=" << pivot << ": swap vec[" << start_idx << "]=" << vec.at(start_idx) << " with vec[" << idx << "]=" << vec.at(idx) << std::endl;
@@ -60,7 +61,7 @@ void Sort::quick_sort(std::vector<int> &vec, int start_idx, int end_idx, bool as
       if (start_idx < end_idx) {
          int idx = quick_sort_rearrange(vec, start_idx, end_idx);
          // std::cout << vec;
-         quick_sort(vec, start_idx, idx-1);
+         quick_sort(vec, start_idx, idx);
          quick_sort(vec, idx+1, end_idx);
       }
    } else {
