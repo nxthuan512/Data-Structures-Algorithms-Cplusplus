@@ -69,4 +69,8 @@ void Sort::quick_sort(std::vector<int> &vec, int start_idx, int end_idx, bool as
    }
 }
 
+// Merge sort
+auto merge_sort_merge(std::vector<int> &vec, int start_idx_1, int start_idx_2, int end_idx) {
+   
+}
 

@@ -14,8 +14,12 @@ public:
    Sort();
    ~Sort();
    void bubble_sort(std::vector<int> &vec, bool ascending=true);
+
    void quick_sort(std::vector<int> &vec, int start_idx, int end_idx, bool ascending=true);
    auto quick_sort_rearrange(std::vector<int> &vec, int start_idx, int end_idx);
+   
+   void merge_sort(std::vector<int> &vec, int start_idx, int end_idx, bool ascending=true);
+   auto merge_sort_merge(std::vector<int> &vec, int start_idx_1, int start_idx_2, int end_idx);
 };
 
 

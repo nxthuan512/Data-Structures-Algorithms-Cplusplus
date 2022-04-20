@@ -7,6 +7,8 @@
 
 enum Sort_algo   {Bubble_Sort, \
                   Quick_Sort, \
+                  Merge_Sort, \
+                  Heap_Sort, \
                   STL};
 
 void init_vector(int length, std::vector<int> &vec);
