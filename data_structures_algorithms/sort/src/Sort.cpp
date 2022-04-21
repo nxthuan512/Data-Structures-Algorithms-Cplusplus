@@ -14,7 +14,7 @@ std::ostream &operator<<(std::ostream &os, const std::vector<int> &vec) {
    return os;
 }
 
-// Bubble sort
+// ========= Bubble sort =========
 void Sort::bubble_sort(std::vector<int> &vec, bool ascending) {
    if (ascending == true) {
       int updated_length = vec.size();
@@ -35,7 +35,7 @@ void Sort::bubble_sort(std::vector<int> &vec, bool ascending) {
    }
 }
 
-// Quick sort
+// ========= Quick sort =========
 auto Sort::quick_sort_rearrange(std::vector<int> &vec, int start_idx, int end_idx) {
    // Pivot is the last vector element
    int pivot = vec.at(end_idx-1);
@@ -69,8 +69,62 @@ void Sort::quick_sort(std::vector<int> &vec, int start_idx, int end_idx, bool as
    }
 }
 
-// Merge sort
-auto merge_sort_merge(std::vector<int> &vec, int start_idx_1, int start_idx_2, int end_idx) {
-   
+// ========= Merge sort =========
+void Sort::merge_sort_merge_sorted_arrays(std::vector<int> &vec, int start_idx_1, int start_idx_2, int end_idx) {
+   // Create 2 copied vectors
+   int end_idx_1 = start_idx_2;
+   int end_idx_2 = end_idx;
+
+   std::vector<int> vec_1 {vec.begin()+start_idx_1, vec.begin()+end_idx_1};
+   std::vector<int> vec_2 {vec.begin()+start_idx_2, vec.begin()+end_idx_2};
+   // std::cout << "XT_DEBUG: start_idx_1=" << start_idx_1 << " end_idx_1=" << end_idx_1 << " vec_1: " << vec_1;
+   // std::cout << "XT_DEBUG: start_idx_2=" << start_idx_2 << " end_idx_2=" << end_idx_2 << " vec_2: " << vec_2;
+
+   unsigned long idx_1 = 0;
+   unsigned long idx_2 = 0;
+
+   // Merge from start_idx_1 to min(length_1, length_2)
+   int idx = start_idx_1;
+   while (idx_1 < vec_1.size() && idx_2 < vec_2.size()) {
+      // std::cout << "XT_DEBUG: Before: idx=" << idx << " idx_1=" << idx_1 << " idx_2=" << idx_2 << " vec_1[idx_1]=" << vec_1.at(idx_1) << " vec_2[idx_2]=" << vec_2.at(idx_2) << std::endl;
+      if (vec_1.at(idx_1) > vec_2.at(idx_2)) {
+         vec.at(idx) = vec_2.at(idx_2);
+         ++idx_2;
+      } else if (vec_1.at(idx_1) <= vec_2.at(idx_2)) {
+         vec.at(idx) = vec_1.at(idx_1);
+         ++idx_1;
+      }
+      ++idx;
+      // std::cout << "XT_DEBUG: After: idx=" << idx << " idx_1=" << idx_1 << " idx_2=" << idx_2 << std::endl;
+      // std::cout << "XT_DEBUG: vec: " << vec;
+   }
+
+   // Copy the remaining to vec
+   // std::cout << "XT_DEBUG: Before: idx=" << idx << " idx_1=" << idx_1 << " idx_2=" << idx_2 << std::endl;
+   while (idx_1 < vec_1.size()) {
+      vec.at(idx) = vec_1.at(idx_1);
+      ++idx_1;
+      ++idx;
+   }
+   while (idx_2 < vec_2.size()) {
+      vec.at(idx) = vec_2.at(idx_2);
+      ++idx_2;
+      ++idx;
+   }
+   // std::cout << "XT_DEBUG: After: idx=" << idx << " idx_1=" << idx_1 << " idx_2=" << idx_2 << std::endl;
+   // std::cout << "XT_DEBUG: vec: " << vec << std::endl;
+}
+
+void Sort::merge_sort(std::vector<int> &vec, int start_idx, int end_idx, bool ascending) {
+   if (ascending == true) {
+      if (start_idx < end_idx) {
+         int mid_idx = start_idx + (end_idx - start_idx)/2;
+         merge_sort(vec, start_idx, mid_idx);
+         merge_sort(vec, mid_idx+1, end_idx);
+         merge_sort_merge_sorted_arrays(vec, start_idx, mid_idx+1, end_idx+1);
+      }
+   } else {
+      std::cerr << "XT_ERROR: Descending sort is not supported" << std::endl;
+   }
 }
 

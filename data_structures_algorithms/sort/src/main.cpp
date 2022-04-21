@@ -33,7 +33,7 @@ void test_sort(Sort_algo sort_algo, const std::vector<int> &vec_org, Sort &sort)
    } else if (sort_algo == Quick_Sort) {
       sort.quick_sort(vec, 0, vec.size());
    } else if (sort_algo == Merge_Sort) {
-      sort.merge_sort(vec, 0, vec.size());
+      sort.merge_sort(vec, 0, vec.size()-1);
    } else if (sort_algo == STL) {
       std::sort(vec.begin(), vec.end());
    }
@@ -53,7 +53,7 @@ int main() {
 
    test_sort(Bubble_Sort, vec_org, sort);
    test_sort(Quick_Sort, vec_org, sort);
-   // test_sort(Merge_Sort, vec_org, sort);
+   test_sort(Merge_Sort, vec_org, sort);
    test_sort(STL, vec_org, sort);
    return 0;
 }
