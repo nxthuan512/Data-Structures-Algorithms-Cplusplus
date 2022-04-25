@@ -1,0 +1,21 @@
+[
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-Wunused",
+            "-Wall",
+            "-Wextra",
+            "-Wshadow",
+            "-Wnon-virtual-dtor",
+            "-pedantic",
+            "-g",
+            "-Iinc",
+            "-o",
+            "obj/Tree.o",
+            "src/Tree.cpp"
+        ],
+        "directory": "/home/nxthuan512/xt_projects/cpp_and_dsa/data_structures_algorithms/tree",
+        "file": "src/Tree.cpp"
+    }
+]

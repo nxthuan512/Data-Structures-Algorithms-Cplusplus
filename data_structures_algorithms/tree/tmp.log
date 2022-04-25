@@ -1,0 +1,16 @@
+XT_DEBUG: Call a constructor: value=0
+Create a FULL BINARY TREE
+XT_DEBUG: Create a node: value=2
+XT_DEBUG: Call a constructor: value=2
+XT_DEBUG: Create a node: value=3
+XT_DEBUG: Call a constructor: value=3
+XT_DEBUG: Create a node: value=4
+XT_DEBUG: Call a constructor: value=4
+XT_DEBUG: Create a node: value=5
+XT_DEBUG: Call a constructor: value=5
+XT_DEBUG: Create a node: value=6
+XT_DEBUG: Call a constructor: value=6
+XT_DEBUG: Create a node: value=7
+XT_DEBUG: Call a constructor: value=7
+XT_DEBUG: Delete node: value=0 m_left=2 m_right=3
+XT_DEBUG: Delete node: value=2 m_left=4 m_right=5
