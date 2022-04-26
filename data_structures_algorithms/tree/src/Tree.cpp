@@ -93,6 +93,25 @@ void Tree::create_tree(Tree_Type type) {
          break;
       }
 
+      case Complete_BT: {
+         std::cout << "Create a COMPLETE BINARY TREE" << std::endl;
+         m_left = create_node(2);          
+         m_right = create_node(3);          
+         m_left->m_left = create_node(4);          
+         m_left->m_right = create_node(5);          
+         m_right->m_left = create_node(6);          
+         // m_right->m_right = create_node(7);          
+         // m_left->m_left->m_left = create_node(8);          
+         // m_left->m_left->m_right = create_node(9);          
+         // m_left->m_right->m_left = create_node(10);          
+         // m_left->m_right->m_right = create_node(11);          
+         // m_right->m_left->m_left = create_node(12);          
+         // m_right->m_left->m_right = create_node(13);          
+         // m_right->m_right->m_left = create_node(14);          
+         // m_right->m_right->m_right = create_node(15);          
+         break;
+      }
+
       default: {
          try {
             throw "Unknow tree type";

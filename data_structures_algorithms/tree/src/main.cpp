@@ -44,10 +44,11 @@ void check_tree_type(Tree_Type my_type) {
    }
    
    my_tree.delete_tree(my_root);
+   std::cout << " ========================================= " << std::endl;
 }
 
 int main() {
-   // test(Full_BT);
+   check_tree_type(Full_BT);
    check_tree_type(Perfect_BT);
    return 0;
 }
