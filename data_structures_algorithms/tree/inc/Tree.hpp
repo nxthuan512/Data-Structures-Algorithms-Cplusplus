@@ -16,12 +16,18 @@ public:
 
    // get root
    Tree *get_root();
+   // get height
+   int get_height(Tree *node);
+
    // create node
    Tree *create_node(int value);
    // create tree
    void create_tree(Tree_Type type);
    // delete tree
    void delete_tree(Tree *tree);
+
+   // check if tree is full binary tree
+   bool is_full_binary(Tree *root);
 };
 
 
