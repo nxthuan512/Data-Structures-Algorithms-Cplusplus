@@ -18,6 +18,8 @@ public:
    Tree *get_root();
    // get height
    int get_height(Tree *node);
+   // get height from left side
+   int get_height_left_only(Tree *node);
 
    // create node
    Tree *create_node(int value);
@@ -28,6 +30,8 @@ public:
 
    // check if tree is full binary tree
    bool is_full_binary(Tree *root);
+   // check if tree is perfect binary tree
+   bool is_perfect_binary(Tree *node, int my_height_left, int my_level = 0);
 };
 
 
