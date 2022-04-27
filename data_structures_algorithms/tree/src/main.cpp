@@ -33,6 +33,17 @@ void check_tree_type(Tree_Type my_type) {
          break;
       }
 
+      case Complete_BT: {
+         int my_num_nodes = my_tree.get_num_nodes(my_root);
+         my_check = my_tree.is_complete_binary(my_root, my_num_nodes);
+         if (my_check == true) {
+            std::cout << "This is a complete binary tree" << std::endl;
+         } else {
+            std::cout << "This is NOT a complete binary tree" << std::endl;
+         }
+         break;
+      }
+
       default: {
          try {
             throw "Unknow tree type";
@@ -50,5 +61,6 @@ void check_tree_type(Tree_Type my_type) {
 int main() {
    check_tree_type(Full_BT);
    check_tree_type(Perfect_BT);
+   check_tree_type(Complete_BT);
    return 0;
 }

@@ -46,8 +46,15 @@ int Tree::get_height_left_only(Tree *node) {
       ++height_left;
       node = node->m_left;
    }
+   return (height_left+1);
+}
 
-   return height_left+1;
+// Get number of nodes in tree
+int Tree::get_num_nodes(Tree *node) {
+   if (node == nullptr) {
+      return 0;
+   }
+   return (1 + get_num_nodes(node->m_left) + get_num_nodes(node->m_right));
 }
 
 // =======================================================
@@ -101,14 +108,6 @@ void Tree::create_tree(Tree_Type type) {
          m_left->m_right = create_node(5);          
          m_right->m_left = create_node(6);          
          // m_right->m_right = create_node(7);          
-         // m_left->m_left->m_left = create_node(8);          
-         // m_left->m_left->m_right = create_node(9);          
-         // m_left->m_right->m_left = create_node(10);          
-         // m_left->m_right->m_right = create_node(11);          
-         // m_right->m_left->m_left = create_node(12);          
-         // m_right->m_left->m_right = create_node(13);          
-         // m_right->m_right->m_left = create_node(14);          
-         // m_right->m_right->m_right = create_node(15);          
          break;
       }
 
@@ -144,19 +143,25 @@ void Tree::delete_tree(Tree *node) {
 // Check Tree type
 // =======================================================
 bool Tree::is_full_binary(Tree *node) {
-   if (node->m_left != nullptr && node->m_right != nullptr) {
-      // std::cout << "XT_DEBUG: At node [1]: value=" << node->m_value << std::endl;
-      return (is_full_binary(node->m_left)) && (is_full_binary(node->m_right));
+   if (node == nullptr) {
+      return true;
    }
    if (node->m_left == nullptr && node->m_right == nullptr) {
       // std::cout << "XT_DEBUG: At node [2]: value=" << node->m_value << std::endl;
       return true;
    } 
+   if (node->m_left != nullptr && node->m_right != nullptr) {
+      // std::cout << "XT_DEBUG: At node [1]: value=" << node->m_value << std::endl;
+      return (is_full_binary(node->m_left)) && (is_full_binary(node->m_right));
+   }
    return false;
 }
 
 bool Tree::is_perfect_binary(Tree *node, int my_height_left, int my_level) {
    // std::cout << "XT_DEBUG: node.value=" << node->m_value << " my_height_left=" << my_height_left << " my_level=" << my_level << std::endl;
+   if (node == nullptr) {
+      return true;
+   }
    // At leaf node
    if (node->m_left == nullptr && node->m_right == nullptr) {
       return (my_height_left == my_level + 1);
@@ -165,4 +170,15 @@ bool Tree::is_perfect_binary(Tree *node, int my_height_left, int my_level) {
       return false;
    }
    return (is_perfect_binary(node->m_left, my_height_left, my_level + 1)) && (is_perfect_binary(node->m_right, my_height_left, my_level + 1));
+}
+
+bool Tree::is_complete_binary(Tree *node, int my_num_nodes, int my_index) {
+   if (node == nullptr) {
+      return true;
+   }
+   // std::cout << "XT_DEBUG: node.value=" << node->m_value << " my_num_nodes=" << my_num_nodes << " my_index=" << my_index << std::endl;
+   if (my_index >= my_num_nodes) {
+      return false;
+   }
+   return (is_complete_binary(node->m_left, my_num_nodes, 2*my_index+1)) && (is_complete_binary(node->m_right, my_num_nodes, 2*my_index+2));
 }
