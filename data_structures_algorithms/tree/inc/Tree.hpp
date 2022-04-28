@@ -36,6 +36,8 @@ public:
    bool is_perfect_binary(Tree *node, int my_height_left, int my_level = 0);
    // check if tree is complete binary tree
    bool is_complete_binary(Tree *node, int my_num_nodes, int my_index = 0);
+   // check if tree is balanced binary tree
+   bool is_balanced_binary(Tree *node);
 };
 
 

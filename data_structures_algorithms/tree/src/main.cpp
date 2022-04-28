@@ -44,6 +44,17 @@ void check_tree_type(Tree_Type my_type) {
          break;
       }
 
+      case Balanced_BT: {
+         my_check = my_tree.is_balanced_binary(my_root);
+         if (my_check == true) {
+            std::cout << "This is a balanced binary tree" << std::endl;
+         } else {
+            std::cout << "This is NOT a balanced binary tree" << std::endl;
+         }
+         break;
+      }
+
+
       default: {
          try {
             throw "Unknow tree type";
@@ -62,5 +73,6 @@ int main() {
    check_tree_type(Full_BT);
    check_tree_type(Perfect_BT);
    check_tree_type(Complete_BT);
+   check_tree_type(Balanced_BT);
    return 0;
 }

@@ -27,15 +27,11 @@ int Tree::get_height(Tree *node) {
    int left_height = 0;
    int right_height = 0;
 
-   if (node->m_left == nullptr && node->m_right == nullptr) {
+   if (node == nullptr) {
       return 0;
    }
-   if (node->m_left != nullptr) {
-      left_height = get_height(node->m_left);   
-   }
-   if (node->m_right != nullptr) {
-      right_height = get_height(node->m_right);
-   }
+   left_height = get_height(node->m_left);   
+   right_height = get_height(node->m_right);
    return (1 + std::max(left_height, right_height));
 }
 
@@ -111,6 +107,20 @@ void Tree::create_tree(Tree_Type type) {
          break;
       }
 
+      case Balanced_BT: {
+         std::cout << "Create a BALANCED BINARY TREE" << std::endl;
+         m_left = create_node(2);          
+         m_right = create_node(3);          
+         m_left->m_left = create_node(4);          
+         m_left->m_right = create_node(5);          
+         m_right->m_left = create_node(6);          
+         m_right->m_right = create_node(7);          
+         m_left->m_left->m_left = create_node(8);          
+         m_left->m_left->m_right = create_node(9);          
+         m_left->m_left->m_left->m_left = create_node(16);          
+         break;
+      }
+
       default: {
          try {
             throw "Unknow tree type";
@@ -181,4 +191,22 @@ bool Tree::is_complete_binary(Tree *node, int my_num_nodes, int my_index) {
       return false;
    }
    return (is_complete_binary(node->m_left, my_num_nodes, 2*my_index+1)) && (is_complete_binary(node->m_right, my_num_nodes, 2*my_index+2));
+}
+
+bool Tree::is_balanced_binary(Tree *node) {
+   int my_level_left;
+   int my_level_right;
+
+   if (node == nullptr) {
+      return true;
+   }
+   // std::cout << "XT_DEBUG: At node: value=" << node->m_value << std::endl;
+   my_level_left = get_height(node->m_left);
+   my_level_right = get_height(node->m_right);
+   // std::cout << "XT_DEBUG: At node: value=" << node->m_value << " my_level_left=" << my_level_left << " my_level_right=" << my_level_right << std::endl;
+
+   if ((std::abs(my_level_left - my_level_right) < 2) && is_balanced_binary(node->m_left) && is_balanced_binary(node->m_right)) {
+      return true;
+   }
+   return false;
 }
