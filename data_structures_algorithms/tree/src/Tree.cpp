@@ -134,18 +134,15 @@ void Tree::create_tree(Tree_Type type) {
 
 void Tree::delete_tree(Tree *node) {
    // std::cout << "XT_DEBUG: At node: value=" << node->m_value << std::endl;
-   if (node->m_left != nullptr) {
-      delete_tree(node->m_left);
-      node->m_left = nullptr;
+   if (node == nullptr) {
+      return;
    }
-   if (node->m_right != nullptr) {
-      delete_tree(node->m_right);
-      node->m_right = nullptr;
-   }
-   if (node->m_left == nullptr && node->m_right == nullptr && node->m_value > 0) {
+   delete_tree(node->m_left);
+   delete_tree(node->m_right);
+
+   if (node->m_value > 0) {
       std::cout << "Delete node: value=" << node->m_value << std::endl;
       delete node;
-      return;
    }
 }
 
