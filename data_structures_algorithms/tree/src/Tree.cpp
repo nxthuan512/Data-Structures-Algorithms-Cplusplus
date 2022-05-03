@@ -22,6 +22,12 @@ Tree *Tree::get_root() {
    return this;
 }
 
+// Get the root value of tree
+int Tree::get_root_value() {
+   Tree *my_root = get_root();
+   return my_root->m_value;
+}
+
 // Find the height of tree from node
 int Tree::get_height(Tree *node) {
    int left_height = 0;
@@ -54,7 +60,7 @@ int Tree::get_num_nodes(Tree *node) {
 }
 
 // =======================================================
-// Create/Delete Tree/Node
+// Create/Delete/Insert Node
 // =======================================================
 Tree *Tree::create_node(int value) {
    std::cout << "Create a node: value=" << value << std::endl;
@@ -62,7 +68,25 @@ Tree *Tree::create_node(int value) {
    return new_node; 
 }
 
-void Tree::create_tree(Tree_Type type) {
+Tree *Tree::bts_insert_node(Tree *node, int value) {
+   if (node == nullptr) {
+      // std::cout << "Insert a node to BTS: value=" << value << std::endl;
+      node = create_node(value);
+      return node;
+   }
+   if (value < node->m_value) {
+      node->m_left = bts_insert_node(node->m_left, value);
+   }
+   if (value >= node->m_value) {
+      node->m_right = bts_insert_node(node->m_right, value);
+   }
+   return node;
+}
+
+// =======================================================
+// Create/Delete Tree
+// =======================================================
+void Tree::create_tree(Tree *node, Tree_Type type) {
    switch (type) {
       case Full_BT: {
          std::cout << "Create a FULL BINARY TREE" << std::endl;
@@ -123,12 +147,14 @@ void Tree::create_tree(Tree_Type type) {
 
       case Binary_Search_Tree: {
          std::cout << "Create a BINARY SEARCH TREE" << std::endl;
-         m_left = create_node(2);          
-         m_right = create_node(3);          
-         m_left->m_left = create_node(4);          
-         m_left->m_right = create_node(5);          
-         m_right->m_left = create_node(6);          
-         m_right->m_right = create_node(7);          
+         m_value = 8;
+         bts_insert_node(node, 3);
+         bts_insert_node(node, 1);
+         bts_insert_node(node, 6);
+         bts_insert_node(node, 7);
+         bts_insert_node(node, 10);
+         bts_insert_node(node, 14);
+         bts_insert_node(node, 4);
          break;
       }
 
@@ -143,15 +169,15 @@ void Tree::create_tree(Tree_Type type) {
    }
 }
 
-void Tree::delete_tree(Tree *node, Tree *root) {
-   // std::cout << "XT_DEBUG: At node: value=" << node->m_value << std::endl;
+void Tree::delete_tree(Tree *node, int root_value) {
    if (node == nullptr) {
       return;
    }
-   delete_tree(node->m_left, root);
-   delete_tree(node->m_right, root);
+   // std::cout << "XT_DEBUG: At node: value=" << node->m_value << " root_value=" << root_value << std::endl;
+   delete_tree(node->m_left, root_value);
+   delete_tree(node->m_right, root_value);
 
-   if (node != root) {
+   if (node->m_value != root_value) {
       std::cout << "Delete node: value=" << node->m_value << std::endl;
       delete node;
    }

@@ -24,6 +24,8 @@ public:
 
    // get root
    Tree *get_root();
+   // get root value
+   int get_root_value();
    // get height
    int get_height(Tree *node);
    // get height from left side
@@ -33,10 +35,12 @@ public:
 
    // create node
    Tree *create_node(int value);
+   // insert node to BTS
+   Tree *bts_insert_node(Tree *node, int value);
    // create tree
-   void create_tree(Tree_Type type);
+   void create_tree(Tree *node, Tree_Type type);
    // delete tree
-   void delete_tree(Tree *node, Tree *root);
+   void delete_tree(Tree *node, int root_value);
 
    // check if tree is full binary tree
    bool is_full_binary(Tree *root);

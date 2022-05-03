@@ -4,13 +4,14 @@
 
 Tree *create_tree(Tree_Type my_type) {
    Tree *my_tree = new Tree {0};
-   my_tree->create_tree(my_type);
+   my_tree->create_tree(my_tree, my_type);
    return my_tree;
 }
 
 void delete_tree(Tree my_tree) {
    Tree *my_root = my_tree.get_root();
-   my_tree.delete_tree(my_root, my_root);
+   int my_root_value = my_tree.get_root_value();
+   my_tree.delete_tree(my_root, my_root_value);
 }
 
 void check_tree_type(Tree_Type my_type, Tree &my_tree) {
@@ -77,23 +78,30 @@ void check_tree_type(Tree_Type my_type, Tree &my_tree) {
 }
 
 int main() {
-   Tree *my_tree = create_tree(Full_BT);
-   check_tree_type(Full_BT, *my_tree);
-   delete_tree(*my_tree);
-   std::cout << " ========================================= " << std::endl;
+   Tree *my_tree = nullptr;
 
-   my_tree = create_tree(Perfect_BT);
-   check_tree_type(Perfect_BT, *my_tree);
-   delete_tree(*my_tree);
-   std::cout << " ========================================= " << std::endl;
+   // my_tree = create_tree(Full_BT);
+   // check_tree_type(Full_BT, *my_tree);
+   // delete_tree(*my_tree);
+   // std::cout << " ========================================= " << std::endl;
 
-   my_tree = create_tree(Complete_BT);
-   check_tree_type(Complete_BT, *my_tree);
-   delete_tree(*my_tree);
-   std::cout << " ========================================= " << std::endl;
+   // my_tree = create_tree(Perfect_BT);
+   // check_tree_type(Perfect_BT, *my_tree);
+   // delete_tree(*my_tree);
+   // std::cout << " ========================================= " << std::endl;
 
-   my_tree = create_tree(Complete_BT);
-   check_tree_type(Balanced_BT, *my_tree);
+   // my_tree = create_tree(Complete_BT);
+   // check_tree_type(Complete_BT, *my_tree);
+   // delete_tree(*my_tree);
+   // std::cout << " ========================================= " << std::endl;
+
+   // my_tree = create_tree(Complete_BT);
+   // check_tree_type(Balanced_BT, *my_tree);
+   // delete_tree(*my_tree);
+   // std::cout << " ========================================= " << std::endl;
+
+   my_tree = create_tree(Binary_Search_Tree);
+   // check_tree_type(Balanced_BT, *my_tree);
    delete_tree(*my_tree);
    std::cout << " ========================================= " << std::endl;
    return 0;
