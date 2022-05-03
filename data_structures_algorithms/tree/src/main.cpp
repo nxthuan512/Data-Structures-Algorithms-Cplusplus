@@ -3,19 +3,19 @@
 
 
 Tree *create_tree(Tree_Type my_type) {
-   Tree *my_tree = new Tree {0};
+   Tree *my_tree = new Tree;
    my_tree->create_tree(my_tree, my_type);
    return my_tree;
 }
 
 void delete_tree(Tree my_tree) {
-   Tree *my_root = my_tree.get_root();
+   Node *my_root = my_tree.get_root();
    int my_root_value = my_tree.get_root_value();
    my_tree.delete_tree(my_root, my_root_value);
 }
 
 void check_tree_type(Tree_Type my_type, Tree &my_tree) {
-   Tree *my_root = my_tree.get_root();
+   Node *my_root = my_tree.get_root();
    bool my_check;
    int my_height;
 

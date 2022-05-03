@@ -5,8 +5,7 @@
 // =======================================================
 // Constructor/Destructor
 // =======================================================
-Tree::Tree(int value)
-: m_value(value), m_left(nullptr), m_right(nullptr) {
+Tree::Tree() {
    // std::cout << "XT_DEBUG: Call a constructor: value=" << m_value << std::endl;
 }
 
@@ -18,18 +17,18 @@ Tree::~Tree() {
 // Getter
 // =======================================================
 // Get the root of tree
-Tree *Tree::get_root() {
-   return this;
+Node *Tree::get_root() {
+   return m_node;
 }
 
 // Get the root value of tree
 int Tree::get_root_value() {
-   Tree *my_root = get_root();
+   Node *my_root = get_root();
    return my_root->m_value;
 }
 
 // Find the height of tree from node
-int Tree::get_height(Tree *node) {
+int Tree::get_height(Node *node) {
    int left_height = 0;
    int right_height = 0;
 
@@ -42,7 +41,7 @@ int Tree::get_height(Tree *node) {
 }
 
 // Find the height of left most branch
-int Tree::get_height_left_only(Tree *node) {
+int Tree::get_height_left_only(Node *node) {
    int height_left = 0;
    while (node->m_left != nullptr) {
       ++height_left;
@@ -52,7 +51,7 @@ int Tree::get_height_left_only(Tree *node) {
 }
 
 // Get number of nodes in tree
-int Tree::get_num_nodes(Tree *node) {
+int Tree::get_num_nodes(Node *node) {
    if (node == nullptr) {
       return 0;
    }
@@ -62,13 +61,13 @@ int Tree::get_num_nodes(Tree *node) {
 // =======================================================
 // Create/Delete/Insert Node
 // =======================================================
-Tree *Tree::create_node(int value) {
+Node *Tree::create_node(int value) {
    std::cout << "Create a node: value=" << value << std::endl;
-   Tree *new_node = new Tree {value};
+   Node *new_node = new Node {value};
    return new_node; 
 }
 
-Tree *Tree::bts_insert_node(Tree *node, int value) {
+Node *Tree::bts_insert_node(Node *node, int value) {
    if (node == nullptr) {
       // std::cout << "Insert a node to BTS: value=" << value << std::endl;
       node = create_node(value);
@@ -86,75 +85,79 @@ Tree *Tree::bts_insert_node(Tree *node, int value) {
 // =======================================================
 // Create/Delete Tree
 // =======================================================
-void Tree::create_tree(Tree *node, Tree_Type type) {
+void Tree::create_tree(Tree *tree, Tree_Type type) {
    switch (type) {
       case Full_BT: {
          std::cout << "Create a FULL BINARY TREE" << std::endl;
-         m_left = create_node(2);          
-         m_right = create_node(3);          
-         m_left->m_left = create_node(4);          
-         m_left->m_right = create_node(5);          
-         m_left->m_right->m_left = create_node(6);          
-         m_left->m_right->m_right = create_node(7);          
-         m_left->m_right->m_left->m_left = create_node(8);          
-         m_left->m_right->m_left->m_right = create_node(9);          
+         tree->m_node = create_node(0);
+         tree->m_node->m_left = create_node(2);          
+         tree->m_node->m_right = create_node(3);          
+         tree->m_node->m_left->m_left = create_node(4);          
+         tree->m_node->m_left->m_right = create_node(5);          
+         tree->m_node->m_left->m_right->m_left = create_node(6);          
+         tree->m_node->m_left->m_right->m_right = create_node(7);          
+         tree->m_node->m_left->m_right->m_left->m_left = create_node(8);          
+         tree->m_node->m_left->m_right->m_left->m_right = create_node(9);          
          break;
       }
 
       case Perfect_BT: {
          std::cout << "Create a PERFECT BINARY TREE" << std::endl;
-         m_left = create_node(2);          
-         m_right = create_node(3);          
-         m_left->m_left = create_node(4);          
-         m_left->m_right = create_node(5);          
-         m_right->m_left = create_node(6);          
-         m_right->m_right = create_node(7);          
-         m_left->m_left->m_left = create_node(8);          
-         m_left->m_left->m_right = create_node(9);          
-         m_left->m_right->m_left = create_node(10);          
-         m_left->m_right->m_right = create_node(11);          
-         m_right->m_left->m_left = create_node(12);          
-         m_right->m_left->m_right = create_node(13);          
-         m_right->m_right->m_left = create_node(14);          
-         m_right->m_right->m_right = create_node(15);          
+         tree->m_node = create_node(0);
+         tree->m_node->m_left = create_node(2);          
+         tree->m_node->m_right = create_node(3);          
+         tree->m_node->m_left->m_left = create_node(4);          
+         tree->m_node->m_left->m_right = create_node(5);          
+         tree->m_node->m_right->m_left = create_node(6);          
+         tree->m_node->m_right->m_right = create_node(7);          
+         tree->m_node->m_left->m_left->m_left = create_node(8);          
+         tree->m_node->m_left->m_left->m_right = create_node(9);          
+         tree->m_node->m_left->m_right->m_left = create_node(10);          
+         tree->m_node->m_left->m_right->m_right = create_node(11);          
+         tree->m_node->m_right->m_left->m_left = create_node(12);          
+         tree->m_node->m_right->m_left->m_right = create_node(13);          
+         tree->m_node->m_right->m_right->m_left = create_node(14);          
+         tree->m_node->m_right->m_right->m_right = create_node(15);          
          break;
       }
 
       case Complete_BT: {
          std::cout << "Create a COMPLETE BINARY TREE" << std::endl;
-         m_left = create_node(2);          
-         m_right = create_node(3);          
-         m_left->m_left = create_node(4);          
-         m_left->m_right = create_node(5);          
-         m_right->m_left = create_node(6);          
+         tree->m_node = create_node(0);
+         tree->m_node->m_left = create_node(2);          
+         tree->m_node->m_right = create_node(3);          
+         tree->m_node->m_left->m_left = create_node(4);          
+         tree->m_node->m_left->m_right = create_node(5);          
+         tree->m_node->m_right->m_left = create_node(6);          
          // m_right->m_right = create_node(7);          
          break;
       }
 
       case Balanced_BT: {
          std::cout << "Create a BALANCED BINARY TREE" << std::endl;
-         m_left = create_node(2);          
-         m_right = create_node(3);          
-         m_left->m_left = create_node(4);          
-         m_left->m_right = create_node(5);          
-         m_right->m_left = create_node(6);          
-         m_right->m_right = create_node(7);          
-         m_left->m_left->m_left = create_node(8);          
-         m_left->m_left->m_right = create_node(9);          
-         m_left->m_left->m_left->m_left = create_node(16);          
+         tree->m_node = create_node(0);
+         tree->m_node->m_left = create_node(2);          
+         tree->m_node->m_right = create_node(3);          
+         tree->m_node->m_left->m_left = create_node(4);          
+         tree->m_node->m_left->m_right = create_node(5);          
+         tree->m_node->m_right->m_left = create_node(6);          
+         tree->m_node->m_right->m_right = create_node(7);          
+         tree->m_node->m_left->m_left->m_left = create_node(8);          
+         tree->m_node->m_left->m_left->m_right = create_node(9);          
+         tree->m_node->m_left->m_left->m_left->m_left = create_node(16);          
          break;
       }
 
       case Binary_Search_Tree: {
          std::cout << "Create a BINARY SEARCH TREE" << std::endl;
-         m_value = 8;
-         bts_insert_node(node, 3);
-         bts_insert_node(node, 1);
-         bts_insert_node(node, 6);
-         bts_insert_node(node, 7);
-         bts_insert_node(node, 10);
-         bts_insert_node(node, 14);
-         bts_insert_node(node, 4);
+         tree->m_node = create_node(8);
+         bts_insert_node(tree->m_node, 3);
+         bts_insert_node(tree->m_node, 1);
+         bts_insert_node(tree->m_node, 6);
+         bts_insert_node(tree->m_node, 7);
+         bts_insert_node(tree->m_node, 10);
+         bts_insert_node(tree->m_node, 14);
+         bts_insert_node(tree->m_node, 4);
          break;
       }
 
@@ -169,24 +172,21 @@ void Tree::create_tree(Tree *node, Tree_Type type) {
    }
 }
 
-void Tree::delete_tree(Tree *node, int root_value) {
+void Tree::delete_tree(Node *node, int root_value) {
    if (node == nullptr) {
       return;
    }
    // std::cout << "XT_DEBUG: At node: value=" << node->m_value << " root_value=" << root_value << std::endl;
    delete_tree(node->m_left, root_value);
    delete_tree(node->m_right, root_value);
-
-   if (node->m_value != root_value) {
-      std::cout << "Delete node: value=" << node->m_value << std::endl;
-      delete node;
-   }
+   std::cout << "Delete node: value=" << node->m_value << std::endl;
+   delete node;
 }
 
 // =======================================================
 // Check Tree type
 // =======================================================
-bool Tree::is_full_binary(Tree *node) {
+bool Tree::is_full_binary(Node *node) {
    if (node == nullptr) {
       return true;
    }
@@ -201,7 +201,7 @@ bool Tree::is_full_binary(Tree *node) {
    return false;
 }
 
-bool Tree::is_perfect_binary(Tree *node, int my_height_left, int my_level) {
+bool Tree::is_perfect_binary(Node *node, int my_height_left, int my_level) {
    // std::cout << "XT_DEBUG: node.value=" << node->m_value << " my_height_left=" << my_height_left << " my_level=" << my_level << std::endl;
    if (node == nullptr) {
       return true;
@@ -216,7 +216,7 @@ bool Tree::is_perfect_binary(Tree *node, int my_height_left, int my_level) {
    return (is_perfect_binary(node->m_left, my_height_left, my_level + 1)) && (is_perfect_binary(node->m_right, my_height_left, my_level + 1));
 }
 
-bool Tree::is_complete_binary(Tree *node, int my_num_nodes, int my_index) {
+bool Tree::is_complete_binary(Node *node, int my_num_nodes, int my_index) {
    if (node == nullptr) {
       return true;
    }
@@ -227,7 +227,7 @@ bool Tree::is_complete_binary(Tree *node, int my_num_nodes, int my_index) {
    return (is_complete_binary(node->m_left, my_num_nodes, 2*my_index+1)) && (is_complete_binary(node->m_right, my_num_nodes, 2*my_index+2));
 }
 
-bool Tree::is_balanced_binary(Tree *node) {
+bool Tree::is_balanced_binary(Node *node) {
    int my_level_left;
    int my_level_right;
 
