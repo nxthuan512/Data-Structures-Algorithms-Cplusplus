@@ -34,7 +34,7 @@ void check_tree_type(Tree_Type my_type, Tree &my_tree) {
       }
 
       case Perfect_BT: {
-         int my_height_left = my_tree.get_height_left_only(my_root);
+         int my_height_left = my_tree.get_height_left_most_node(my_root);
          my_check = my_tree.is_perfect_binary(my_root, my_height_left);
          if (my_check == true) {
             std::cout << "This is a perfect binary tree" << std::endl;
@@ -111,6 +111,9 @@ int main() {
 
    my_tree = create_tree(Binary_Search_Tree);
    check_tree_type(Binary_Search_Tree, *my_tree);
+   my_tree->bts_delete_node(my_tree->get_root(), 4);
+   my_tree->bts_delete_node(my_tree->get_root(), 10);
+   my_tree->bts_delete_node(my_tree->get_root(), 3);
    delete_tree(*my_tree);
    std::cout << " ========================================= " << std::endl;
    return 0;

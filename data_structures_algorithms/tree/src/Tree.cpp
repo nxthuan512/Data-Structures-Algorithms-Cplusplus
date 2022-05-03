@@ -41,7 +41,7 @@ int Tree::get_height(Node *node) {
 }
 
 // Find the height of left most branch
-int Tree::get_height_left_only(Node *node) {
+int Tree::get_height_left_most_node(Node *node) {
    int height_left = 0;
    while (node->m_left != nullptr) {
       ++height_left;
@@ -56,6 +56,14 @@ int Tree::get_num_nodes(Node *node) {
       return 0;
    }
    return (1 + get_num_nodes(node->m_left) + get_num_nodes(node->m_right));
+}
+
+// Get the left most node
+Node *Tree::get_left_most_node(Node *node) {
+   while (node->m_left != nullptr) {
+      node = node->m_left;
+   }
+   return node;
 }
 
 // =======================================================
@@ -78,6 +86,44 @@ Node *Tree::bts_insert_node(Node *node, int value) {
    }
    if (value >= node->m_value) {
       node->m_right = bts_insert_node(node->m_right, value);
+   }
+   return node;
+}
+
+Node *Tree::bts_delete_node(Node *node, int value) {
+   // If not found 
+   if (node == nullptr) {
+      return nullptr;
+   }
+   if (value < node->m_value) {
+      node->m_left = bts_delete_node(node->m_left, value);
+   }
+   if (value >= node->m_value) {
+      node->m_right = bts_delete_node(node->m_right, value);
+   }
+   if (node->m_value == value) {
+      // If the node is leaf node
+      if (node->m_left == nullptr && node->m_right == nullptr) {
+         delete node;
+         return nullptr;
+      } 
+      // If the node contains a single child
+      else if (node->m_left == nullptr) {
+         Node *new_node = node->m_right;
+         delete node;
+         return new_node;
+      } 
+      else if (node->m_right == nullptr) {
+         Node *new_node = node->m_left;
+         delete node;
+         return new_node;
+      }
+      // If the node contains 2 childs
+      else {
+         Node *new_node = get_left_most_node(node);
+         node->m_value = new_node->m_value;
+         node->m_right = bts_delete_node(node->m_right, new_node->m_value);
+      }
    }
    return node;
 }

@@ -28,7 +28,9 @@ public:
    // get height
    int get_height(Node *node);
    // get height from left side
-   int get_height_left_only(Node *node);
+   int get_height_left_most_node(Node *node);
+   // get left most node
+   Node *get_left_most_node(Node *node);
    // get number of nodes
    int get_num_nodes(Node *node);
 
@@ -36,6 +38,8 @@ public:
    Node *create_node(int value);
    // insert node to BTS
    Node *bts_insert_node(Node *node, int value);
+   // delete node in BTS
+   Node *bts_delete_node(Node *node, int value);
    // create tree
    void create_tree(Tree *tree, Tree_Type type);
    // delete tree
