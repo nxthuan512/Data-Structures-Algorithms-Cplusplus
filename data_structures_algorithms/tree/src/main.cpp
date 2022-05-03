@@ -65,6 +65,15 @@ void check_tree_type(Tree_Type my_type, Tree &my_tree) {
          break;
       }
 
+      case Binary_Search_Tree: {
+         my_check = my_tree.is_binary_search_tree(my_root);
+         if (my_check == true) {
+            std::cout << "This is a binary search tree" << std::endl;
+         } else {
+            std::cout << "This is NOT a binary search tree" << std::endl;
+         }
+         break;
+      }
 
       default: {
          try {
@@ -101,7 +110,7 @@ int main() {
    // std::cout << " ========================================= " << std::endl;
 
    my_tree = create_tree(Binary_Search_Tree);
-   // check_tree_type(Balanced_BT, *my_tree);
+   check_tree_type(Binary_Search_Tree, *my_tree);
    delete_tree(*my_tree);
    std::cout << " ========================================= " << std::endl;
    return 0;

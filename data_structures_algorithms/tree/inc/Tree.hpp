@@ -49,6 +49,8 @@ public:
    bool is_complete_binary(Node *node, int my_num_nodes, int my_index = 0);
    // check if tree is balanced binary tree
    bool is_balanced_binary(Node *node);
+   // check if tree is BTS
+   bool is_binary_search_tree(Node *node);
 };
 
 

@@ -179,6 +179,7 @@ void Tree::delete_tree(Node *node, int root_value) {
    // std::cout << "XT_DEBUG: At node: value=" << node->m_value << " root_value=" << root_value << std::endl;
    delete_tree(node->m_left, root_value);
    delete_tree(node->m_right, root_value);
+
    std::cout << "Delete node: value=" << node->m_value << std::endl;
    delete node;
 }
@@ -243,4 +244,17 @@ bool Tree::is_balanced_binary(Node *node) {
       return true;
    }
    return false;
+}
+
+bool Tree::is_binary_search_tree(Node *node) {
+   if (node == nullptr) {
+      return true;
+   }
+   if (node->m_left != nullptr && node->m_value <= node->m_left->m_value) {
+      return false;
+   }
+   if (node->m_right != nullptr && node->m_value > node->m_right->m_value) {
+      return false;
+   }
+   return (is_balanced_binary(node->m_left) && is_balanced_binary(node->m_right));
 }
