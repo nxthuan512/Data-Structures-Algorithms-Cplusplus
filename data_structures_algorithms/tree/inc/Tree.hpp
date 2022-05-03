@@ -3,7 +3,15 @@
 
 #include <string>
 
-enum Tree_Type {Full_BT, Complete_BT, Perfect_BT, Balanced_BT};
+enum Tree_Type {Full_BT, 
+                Complete_BT, 
+                Perfect_BT, 
+                Balanced_BT,
+                Binary_Search_Tree, 
+                AVL_Tree,
+                B_Tree,
+                Bplus_Tree,
+                Black_Red_Tree};
 
 class Tree {
 private:
@@ -28,7 +36,7 @@ public:
    // create tree
    void create_tree(Tree_Type type);
    // delete tree
-   void delete_tree(Tree *tree);
+   void delete_tree(Tree *node, Tree *root);
 
    // check if tree is full binary tree
    bool is_full_binary(Tree *root);

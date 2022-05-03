@@ -121,6 +121,17 @@ void Tree::create_tree(Tree_Type type) {
          break;
       }
 
+      case Binary_Search_Tree: {
+         std::cout << "Create a BINARY SEARCH TREE" << std::endl;
+         m_left = create_node(2);          
+         m_right = create_node(3);          
+         m_left->m_left = create_node(4);          
+         m_left->m_right = create_node(5);          
+         m_right->m_left = create_node(6);          
+         m_right->m_right = create_node(7);          
+         break;
+      }
+
       default: {
          try {
             throw "Unknow tree type";
@@ -132,15 +143,15 @@ void Tree::create_tree(Tree_Type type) {
    }
 }
 
-void Tree::delete_tree(Tree *node) {
+void Tree::delete_tree(Tree *node, Tree *root) {
    // std::cout << "XT_DEBUG: At node: value=" << node->m_value << std::endl;
    if (node == nullptr) {
       return;
    }
-   delete_tree(node->m_left);
-   delete_tree(node->m_right);
+   delete_tree(node->m_left, root);
+   delete_tree(node->m_right, root);
 
-   if (node->m_value > 0) {
+   if (node != root) {
       std::cout << "Delete node: value=" << node->m_value << std::endl;
       delete node;
    }

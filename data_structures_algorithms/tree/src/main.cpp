@@ -1,13 +1,23 @@
 #include "main.hpp"
 #include <iostream>
 
-void check_tree_type(Tree_Type my_type) {
-   Tree my_tree {0};
+
+Tree *create_tree(Tree_Type my_type) {
+   Tree *my_tree = new Tree {0};
+   my_tree->create_tree(my_type);
+   return my_tree;
+}
+
+void delete_tree(Tree my_tree) {
+   Tree *my_root = my_tree.get_root();
+   my_tree.delete_tree(my_root, my_root);
+}
+
+void check_tree_type(Tree_Type my_type, Tree &my_tree) {
    Tree *my_root = my_tree.get_root();
    bool my_check;
    int my_height;
 
-   my_tree.create_tree(my_type);
    my_height = my_tree.get_height(my_root);
    std::cout << "Tree height is " << my_height << std::endl;
 
@@ -64,15 +74,27 @@ void check_tree_type(Tree_Type my_type) {
          }
       }
    }
-   
-   my_tree.delete_tree(my_root);
-   std::cout << " ========================================= " << std::endl;
 }
 
 int main() {
-   check_tree_type(Full_BT);
-   check_tree_type(Perfect_BT);
-   check_tree_type(Complete_BT);
-   check_tree_type(Balanced_BT);
+   Tree *my_tree = create_tree(Full_BT);
+   check_tree_type(Full_BT, *my_tree);
+   delete_tree(*my_tree);
+   std::cout << " ========================================= " << std::endl;
+
+   my_tree = create_tree(Perfect_BT);
+   check_tree_type(Perfect_BT, *my_tree);
+   delete_tree(*my_tree);
+   std::cout << " ========================================= " << std::endl;
+
+   my_tree = create_tree(Complete_BT);
+   check_tree_type(Complete_BT, *my_tree);
+   delete_tree(*my_tree);
+   std::cout << " ========================================= " << std::endl;
+
+   my_tree = create_tree(Complete_BT);
+   check_tree_type(Balanced_BT, *my_tree);
+   delete_tree(*my_tree);
+   std::cout << " ========================================= " << std::endl;
    return 0;
 }
