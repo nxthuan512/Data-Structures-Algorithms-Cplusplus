@@ -105,26 +105,26 @@ Node *Tree::bts_delete_node(Node *node, int value) {
    if (node->m_value == value) {
       // If the node is leaf node
       if (node->m_left == nullptr && node->m_right == nullptr) {
-         std::cout << "XT_DEBUG: The delete_node " << node->m_value << " is a leaf node" << std::endl;
+         // std::cout << "XT_DEBUG: The delete_node " << node->m_value << " is a leaf node" << std::endl;
          delete node;
          return nullptr;
       } 
       // If the node contains a single child
       else if (node->m_right != nullptr && node->m_left == nullptr) {
-         std::cout << "XT_DEBUG: The delete_node " << node->m_value << " has only right child" << std::endl;
+         // std::cout << "XT_DEBUG: The delete_node " << node->m_value << " has only right child" << std::endl;
          Node *new_node = node->m_right;
          delete node;
          return new_node;
       } 
       else if (node->m_left != nullptr && node->m_right == nullptr) {
-         std::cout << "XT_DEBUG: The delete_node " << node->m_value << " has only left child" << std::endl;
+         // std::cout << "XT_DEBUG: The delete_node " << node->m_value << " has only left child" << std::endl;
          Node *new_node = node->m_left;
          delete node;
          return new_node;
       }
       // If the node contains 2 childs
       else {
-         std::cout << "XT_DEBUG: The delete_node " << node->m_value << " has both left and right children" << std::endl;
+         // std::cout << "XT_DEBUG: The delete_node " << node->m_value << " has both left and right children" << std::endl;
          Node *new_node = get_left_most_node_in_right(node);
          node->m_value = new_node->m_value;
          node->m_right = bts_delete_node(node->m_right, new_node->m_value);
