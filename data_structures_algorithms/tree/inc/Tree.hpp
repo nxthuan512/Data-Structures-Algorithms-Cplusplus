@@ -30,7 +30,7 @@ public:
    // get height from left side
    int get_height_left_most_node(Node *node);
    // get left most node
-   Node *get_left_most_node(Node *node);
+   Node *get_left_most_node_in_right(Node *node);
    // get number of nodes
    int get_num_nodes(Node *node);
 

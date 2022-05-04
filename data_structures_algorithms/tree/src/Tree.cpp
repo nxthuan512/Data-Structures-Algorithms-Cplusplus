@@ -59,7 +59,8 @@ int Tree::get_num_nodes(Node *node) {
 }
 
 // Get the left most node
-Node *Tree::get_left_most_node(Node *node) {
+Node *Tree::get_left_most_node_in_right(Node *node) {
+   node = node->m_right;
    while (node->m_left != nullptr) {
       node = node->m_left;
    }
@@ -84,7 +85,7 @@ Node *Tree::bts_insert_node(Node *node, int value) {
    if (value < node->m_value) {
       node->m_left = bts_insert_node(node->m_left, value);
    }
-   if (value >= node->m_value) {
+   if (value > node->m_value) {
       node->m_right = bts_insert_node(node->m_right, value);
    }
    return node;
@@ -98,29 +99,33 @@ Node *Tree::bts_delete_node(Node *node, int value) {
    if (value < node->m_value) {
       node->m_left = bts_delete_node(node->m_left, value);
    }
-   if (value >= node->m_value) {
+   if (value > node->m_value) {
       node->m_right = bts_delete_node(node->m_right, value);
    }
    if (node->m_value == value) {
       // If the node is leaf node
       if (node->m_left == nullptr && node->m_right == nullptr) {
+         std::cout << "XT_DEBUG: The delete_node " << node->m_value << " is a leaf node" << std::endl;
          delete node;
          return nullptr;
       } 
       // If the node contains a single child
-      else if (node->m_left == nullptr) {
+      else if (node->m_right != nullptr && node->m_left == nullptr) {
+         std::cout << "XT_DEBUG: The delete_node " << node->m_value << " has only right child" << std::endl;
          Node *new_node = node->m_right;
          delete node;
          return new_node;
       } 
-      else if (node->m_right == nullptr) {
+      else if (node->m_left != nullptr && node->m_right == nullptr) {
+         std::cout << "XT_DEBUG: The delete_node " << node->m_value << " has only left child" << std::endl;
          Node *new_node = node->m_left;
          delete node;
          return new_node;
       }
       // If the node contains 2 childs
       else {
-         Node *new_node = get_left_most_node(node);
+         std::cout << "XT_DEBUG: The delete_node " << node->m_value << " has both left and right children" << std::endl;
+         Node *new_node = get_left_most_node_in_right(node);
          node->m_value = new_node->m_value;
          node->m_right = bts_delete_node(node->m_right, new_node->m_value);
       }
