@@ -7,7 +7,7 @@ BST::BST() = default;
 BST::~BST() = default;
 
 // =======================================================
-// Create/Delete Tree
+// Create Tree
 // =======================================================
 void BST::create_tree(BST *tree) {
    std::cout << "Create a BINARY SEARCH TREE" << std::endl;

@@ -65,10 +65,6 @@ void check_tree_type(Tree_Type my_type, Tree &my_tree) {
          break;
       }
 
-      case Binary_Search_Tree: {
-         break;
-      }
-
       default: {
          try {
             throw "Unknow tree type";

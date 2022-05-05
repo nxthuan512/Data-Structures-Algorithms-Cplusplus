@@ -19,10 +19,10 @@ LIBS        =-lm
 PROG_NAME   = main
 
 # Define depedencies *.hpp
-_DEPS       = $(PROG_NAME).hpp Tree.hpp Node.hpp BST.hpp
+_DEPS       = $(PROG_NAME).hpp Tree.hpp Node.hpp BST.hpp AVL.hpp
 DEPS        = $(patsubst %,$(INCDIR)/%,$(_DEPS))
 # Define objects *.o
-_OBJ        = $(PROG_NAME).o Tree.o Node.o BST.o 
+_OBJ        = $(PROG_NAME).o Tree.o Node.o BST.o AVL.o
 OBJ         = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 # Generate all *.o files
