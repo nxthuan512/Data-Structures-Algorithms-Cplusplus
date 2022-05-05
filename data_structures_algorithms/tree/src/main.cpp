@@ -109,12 +109,21 @@ int main() {
    // delete_tree(*my_tree);
    // std::cout << " ========================================= " << std::endl;
 
-   my_tree = create_tree(Binary_Search_Tree);
-   check_tree_type(Binary_Search_Tree, *my_tree);
-   my_tree->bts_delete_node(my_tree->get_root(), 4);
-   my_tree->bts_delete_node(my_tree->get_root(), 10);
-   my_tree->bts_delete_node(my_tree->get_root(), 3);
+   // my_tree = create_tree(Binary_Search_Tree);
+   // check_tree_type(Binary_Search_Tree, *my_tree);
+   // my_tree->bts_delete_node(my_tree->get_root(), 4);
+   // my_tree->bts_delete_node(my_tree->get_root(), 10);
+   // my_tree->bts_delete_node(my_tree->get_root(), 3);
+   // delete_tree(*my_tree);
+   // std::cout << " ========================================= " << std::endl;
+
+   my_tree = create_tree(AVL_Tree);
+   // check_tree_type(AVL_Tree, *my_tree);
+   my_tree->avl_delete_node(my_tree->get_root(), 4);
+   my_tree->avl_delete_node(my_tree->get_root(), 10);
+   my_tree->avl_delete_node(my_tree->get_root(), 3);
    delete_tree(*my_tree);
    std::cout << " ========================================= " << std::endl;
+   
    return 0;
 }

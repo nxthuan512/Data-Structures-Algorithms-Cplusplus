@@ -40,6 +40,15 @@ int Tree::get_height(Node *node) {
    return (1 + std::max(left_height, right_height));
 }
 
+// Get max height between 2 subtrees
+int Tree::calc_balance_factor(Node *node) {
+   if (node == nullptr) {
+      return 0;
+   } else {
+      return (node->m_left->m_height - node->m_right->m_height);
+   }
+}
+
 // Find the height of left most branch
 int Tree::get_height_left_most_node(Node *node) {
    int height_left = 0;
@@ -70,9 +79,9 @@ Node *Tree::get_left_most_node_in_right(Node *node) {
 // =======================================================
 // Create/Delete/Insert Node
 // =======================================================
-Node *Tree::create_node(int value) {
+Node *Tree::create_node(int value, int heigth) {
    std::cout << "Create a node: value=" << value << std::endl;
-   Node *new_node = new Node {value};
+   Node *new_node = new Node {value, heigth};
    return new_node; 
 }
 
@@ -131,6 +140,35 @@ Node *Tree::bts_delete_node(Node *node, int value) {
       }
    }
    return node;
+}
+
+Node *Tree::avl_insert_node(Node *node, int value) {
+   // Insert new node in leaf node
+   if (node == nullptr) {
+      return create_node(value);
+   }
+   if (value > node->m_value) {
+      node->m_left = avl_insert_node(node->m_left, value);
+   }
+   else if (value < node->m_value) {
+      node->m_right = avl_insert_node(node->m_right, value);
+   }
+   else {
+      return node;
+   }
+
+   // Update heigth of node
+   node->m_height = 1 + std::max(node->m_left->m_height, node->m_right->m_height);
+   int balanced_factor = calc_balance_factor(node);
+
+   // If tree is unbalanced, height_left > height_right
+   // if (balanced_factor > 1) {
+   //    if (value < node->m_value) {
+   //       return avl_right_rotation(node);
+   //    } else {
+   //       return avl_left_rotation(node)
+   //    }
+   // }
 }
 
 // =======================================================
@@ -209,6 +247,20 @@ void Tree::create_tree(Tree *tree, Tree_Type type) {
          bts_insert_node(tree->m_node, 10);
          bts_insert_node(tree->m_node, 14);
          bts_insert_node(tree->m_node, 4);
+         break;
+      }
+
+      case AVL_Tree: {
+         std::cout << "Create a AVL TREE" << std::endl;
+         tree->m_node = create_node(8);
+         avl_insert_node(tree->m_node, 33);
+         avl_insert_node(tree->m_node, 13);
+         avl_insert_node(tree->m_node, 53);
+         avl_insert_node(tree->m_node, 9);
+         avl_insert_node(tree->m_node, 21);
+         avl_insert_node(tree->m_node, 61);
+         avl_insert_node(tree->m_node, 8);
+         avl_insert_node(tree->m_node, 11);
          break;
       }
 

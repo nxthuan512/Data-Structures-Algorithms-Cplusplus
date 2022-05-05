@@ -3,8 +3,8 @@
 // =======================================================
 // Constructor/Destructor
 // =======================================================
-Node::Node(int value)
-: m_value(value), m_left(nullptr), m_right(nullptr) {
+Node::Node(int value, int height)
+: m_value(value), m_height(height), m_left(nullptr), m_right(nullptr) {
    // std::cout << "XT_DEBUG: Call a constructor: value=" << m_value << std::endl;
 }
 

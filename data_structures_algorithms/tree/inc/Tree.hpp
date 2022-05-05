@@ -29,17 +29,23 @@ public:
    int get_height(Node *node);
    // get height from left side
    int get_height_left_most_node(Node *node);
+   // get max height of 2 subtrees
+   int calc_balance_factor(Node *node);
    // get left most node
    Node *get_left_most_node_in_right(Node *node);
    // get number of nodes
    int get_num_nodes(Node *node);
 
    // create node
-   Node *create_node(int value);
+   Node *create_node(int value, int height = 0);
    // insert node to BTS
    Node *bts_insert_node(Node *node, int value);
    // delete node in BTS
    Node *bts_delete_node(Node *node, int value);
+   // insert node in AVL tree
+   Node *avl_insert_node(Node *node, int value);
+   // delete node in AVL tree
+   Node *avl_delete_node(Node *node, int value);
    // create tree
    void create_tree(Tree *tree, Tree_Type type);
    // delete tree
