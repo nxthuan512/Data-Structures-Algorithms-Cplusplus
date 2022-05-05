@@ -15,7 +15,7 @@ enum Tree_Type {Full_BT,
                 Black_Red_Tree};
 
 class Tree {
-private:
+protected:
    Node *m_node;
 public:
    Tree();
@@ -31,17 +31,11 @@ public:
    int get_height_left_most_node(Node *node);
    // get max height of 2 subtrees
    int calc_balance_factor(Node *node);
-   // get left most node
-   Node *get_left_most_node_in_right(Node *node);
    // get number of nodes
    int get_num_nodes(Node *node);
 
    // create node
    Node *create_node(int value, int height = 0);
-   // insert node to BTS
-   Node *bts_insert_node(Node *node, int value);
-   // delete node in BTS
-   Node *bts_delete_node(Node *node, int value);
    // insert node in AVL tree
    Node *avl_insert_node(Node *node, int value);
    // delete node in AVL tree
@@ -59,8 +53,6 @@ public:
    bool is_complete_binary(Node *node, int my_num_nodes, int my_index = 0);
    // check if tree is balanced binary tree
    bool is_balanced_binary(Node *node);
-   // check if tree is BTS
-   bool is_binary_search_tree(Node *node);
 };
 
 

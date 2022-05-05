@@ -1,4 +1,5 @@
 #include "Tree.hpp"
+#include "BST.hpp"
 #include <string>
 #include <iostream>
 
@@ -67,15 +68,6 @@ int Tree::get_num_nodes(Node *node) {
    return (1 + get_num_nodes(node->m_left) + get_num_nodes(node->m_right));
 }
 
-// Get the left most node
-Node *Tree::get_left_most_node_in_right(Node *node) {
-   node = node->m_right;
-   while (node->m_left != nullptr) {
-      node = node->m_left;
-   }
-   return node;
-}
-
 // =======================================================
 // Create/Delete/Insert Node
 // =======================================================
@@ -85,91 +77,34 @@ Node *Tree::create_node(int value, int heigth) {
    return new_node; 
 }
 
-Node *Tree::bts_insert_node(Node *node, int value) {
-   if (node == nullptr) {
-      // std::cout << "Insert a node to BTS: value=" << value << std::endl;
-      node = create_node(value);
-      return node;
-   }
-   if (value < node->m_value) {
-      node->m_left = bts_insert_node(node->m_left, value);
-   }
-   if (value > node->m_value) {
-      node->m_right = bts_insert_node(node->m_right, value);
-   }
-   return node;
-}
+// Node *Tree::avl_insert_node(Node *node, int value) {
+//    // Insert new node in leaf node
+//    if (node == nullptr) {
+//       return create_node(value);
+//    }
+//    if (value > node->m_value) {
+//       node->m_left = avl_insert_node(node->m_left, value);
+//    }
+//    else if (value < node->m_value) {
+//       node->m_right = avl_insert_node(node->m_right, value);
+//    }
+//    else {
+//       return node;
+//    }
 
-Node *Tree::bts_delete_node(Node *node, int value) {
-   // If not found 
-   if (node == nullptr) {
-      return nullptr;
-   }
-   if (value < node->m_value) {
-      node->m_left = bts_delete_node(node->m_left, value);
-   }
-   if (value > node->m_value) {
-      node->m_right = bts_delete_node(node->m_right, value);
-   }
-   if (node->m_value == value) {
-      // If the node is leaf node
-      if (node->m_left == nullptr && node->m_right == nullptr) {
-         // std::cout << "XT_DEBUG: The delete_node " << node->m_value << " is a leaf node" << std::endl;
-         delete node;
-         return nullptr;
-      } 
-      // If the node contains a single child
-      else if (node->m_right != nullptr && node->m_left == nullptr) {
-         // std::cout << "XT_DEBUG: The delete_node " << node->m_value << " has only right child" << std::endl;
-         Node *new_node = node->m_right;
-         delete node;
-         return new_node;
-      } 
-      else if (node->m_left != nullptr && node->m_right == nullptr) {
-         // std::cout << "XT_DEBUG: The delete_node " << node->m_value << " has only left child" << std::endl;
-         Node *new_node = node->m_left;
-         delete node;
-         return new_node;
-      }
-      // If the node contains 2 childs
-      else {
-         // std::cout << "XT_DEBUG: The delete_node " << node->m_value << " has both left and right children" << std::endl;
-         Node *new_node = get_left_most_node_in_right(node);
-         node->m_value = new_node->m_value;
-         node->m_right = bts_delete_node(node->m_right, new_node->m_value);
-      }
-   }
-   return node;
-}
+//    // Update heigth of node
+//    node->m_height = 1 + std::max(node->m_left->m_height, node->m_right->m_height);
+//    int balanced_factor = calc_balance_factor(node);
 
-Node *Tree::avl_insert_node(Node *node, int value) {
-   // Insert new node in leaf node
-   if (node == nullptr) {
-      return create_node(value);
-   }
-   if (value > node->m_value) {
-      node->m_left = avl_insert_node(node->m_left, value);
-   }
-   else if (value < node->m_value) {
-      node->m_right = avl_insert_node(node->m_right, value);
-   }
-   else {
-      return node;
-   }
-
-   // Update heigth of node
-   node->m_height = 1 + std::max(node->m_left->m_height, node->m_right->m_height);
-   int balanced_factor = calc_balance_factor(node);
-
-   // If tree is unbalanced, height_left > height_right
-   // if (balanced_factor > 1) {
-   //    if (value < node->m_value) {
-   //       return avl_right_rotation(node);
-   //    } else {
-   //       return avl_left_rotation(node)
-   //    }
-   // }
-}
+//    // If tree is unbalanced, height_left > height_right
+//    // if (balanced_factor > 1) {
+//    //    if (value < node->m_value) {
+//    //       return avl_right_rotation(node);
+//    //    } else {
+//    //       return avl_left_rotation(node)
+//    //    }
+//    // }
+// }
 
 // =======================================================
 // Create/Delete Tree
@@ -237,32 +172,19 @@ void Tree::create_tree(Tree *tree, Tree_Type type) {
          break;
       }
 
-      case Binary_Search_Tree: {
-         std::cout << "Create a BINARY SEARCH TREE" << std::endl;
-         tree->m_node = create_node(8);
-         bts_insert_node(tree->m_node, 3);
-         bts_insert_node(tree->m_node, 1);
-         bts_insert_node(tree->m_node, 6);
-         bts_insert_node(tree->m_node, 7);
-         bts_insert_node(tree->m_node, 10);
-         bts_insert_node(tree->m_node, 14);
-         bts_insert_node(tree->m_node, 4);
-         break;
-      }
-
-      case AVL_Tree: {
-         std::cout << "Create a AVL TREE" << std::endl;
-         tree->m_node = create_node(8);
-         avl_insert_node(tree->m_node, 33);
-         avl_insert_node(tree->m_node, 13);
-         avl_insert_node(tree->m_node, 53);
-         avl_insert_node(tree->m_node, 9);
-         avl_insert_node(tree->m_node, 21);
-         avl_insert_node(tree->m_node, 61);
-         avl_insert_node(tree->m_node, 8);
-         avl_insert_node(tree->m_node, 11);
-         break;
-      }
+      // case AVL_Tree: {
+      //    std::cout << "Create a AVL TREE" << std::endl;
+      //    tree->m_node = create_node(8);
+      //    avl_insert_node(tree->m_node, 33);
+      //    avl_insert_node(tree->m_node, 13);
+      //    avl_insert_node(tree->m_node, 53);
+      //    avl_insert_node(tree->m_node, 9);
+      //    avl_insert_node(tree->m_node, 21);
+      //    avl_insert_node(tree->m_node, 61);
+      //    avl_insert_node(tree->m_node, 8);
+      //    avl_insert_node(tree->m_node, 11);
+      //    break;
+      // }
 
       default: {
          try {
@@ -349,15 +271,3 @@ bool Tree::is_balanced_binary(Node *node) {
    return false;
 }
 
-bool Tree::is_binary_search_tree(Node *node) {
-   if (node == nullptr) {
-      return true;
-   }
-   if (node->m_left != nullptr && node->m_value <= node->m_left->m_value) {
-      return false;
-   }
-   if (node->m_right != nullptr && node->m_value > node->m_right->m_value) {
-      return false;
-   }
-   return (is_balanced_binary(node->m_left) && is_balanced_binary(node->m_right));
-}

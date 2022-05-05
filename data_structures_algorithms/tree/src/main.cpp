@@ -1,7 +1,7 @@
 #include "main.hpp"
 #include <iostream>
 
-
+// ======================================================================
 Tree *create_tree(Tree_Type my_type) {
    Tree *my_tree = new Tree;
    my_tree->create_tree(my_tree, my_type);
@@ -66,12 +66,6 @@ void check_tree_type(Tree_Type my_type, Tree &my_tree) {
       }
 
       case Binary_Search_Tree: {
-         my_check = my_tree.is_binary_search_tree(my_root);
-         if (my_check == true) {
-            std::cout << "This is a binary search tree" << std::endl;
-         } else {
-            std::cout << "This is NOT a binary search tree" << std::endl;
-         }
          break;
       }
 
@@ -86,6 +80,30 @@ void check_tree_type(Tree_Type my_type, Tree &my_tree) {
    }
 }
 
+// ======================================================================
+BST *create_bst() {
+   BST *my_tree = new BST;
+   my_tree->create_tree(my_tree);
+   return my_tree;
+}
+
+void delete_bst(BST my_tree) {
+   Node *my_root = my_tree.get_root();
+   int my_root_value = my_tree.get_root_value();
+   my_tree.delete_tree(my_root, my_root_value);
+}
+
+void check_bst (BST &my_tree) {
+   Node *my_root = my_tree.get_root();
+   bool my_check = my_tree.is_binary_search_tree(my_root);
+   if (my_check == true) {
+      std::cout << "This is a binary search tree" << std::endl;
+   } else {
+      std::cout << "This is NOT a binary search tree" << std::endl;
+   }
+}
+
+// ======================================================================
 int main() {
    Tree *my_tree = nullptr;
 
@@ -109,21 +127,21 @@ int main() {
    // delete_tree(*my_tree);
    // std::cout << " ========================================= " << std::endl;
 
-   // my_tree = create_tree(Binary_Search_Tree);
-   // check_tree_type(Binary_Search_Tree, *my_tree);
-   // my_tree->bts_delete_node(my_tree->get_root(), 4);
-   // my_tree->bts_delete_node(my_tree->get_root(), 10);
-   // my_tree->bts_delete_node(my_tree->get_root(), 3);
+   BST *my_bst = create_bst();
+   check_bst(*my_bst);
+   my_bst->delete_node(my_bst->get_root(), 4);
+   my_bst->delete_node(my_bst->get_root(), 10);
+   my_bst->delete_node(my_bst->get_root(), 3);
+   delete_tree(*my_bst);
+   std::cout << " ========================================= " << std::endl;
+
+   // my_tree = create_tree(AVL_Tree);
+   // // check_tree_type(AVL_Tree, *my_tree);
+   // my_tree->avl_delete_node(my_tree->get_root(), 4);
+   // my_tree->avl_delete_node(my_tree->get_root(), 10);
+   // my_tree->avl_delete_node(my_tree->get_root(), 3);
    // delete_tree(*my_tree);
    // std::cout << " ========================================= " << std::endl;
-
-   my_tree = create_tree(AVL_Tree);
-   // check_tree_type(AVL_Tree, *my_tree);
-   my_tree->avl_delete_node(my_tree->get_root(), 4);
-   my_tree->avl_delete_node(my_tree->get_root(), 10);
-   my_tree->avl_delete_node(my_tree->get_root(), 3);
-   delete_tree(*my_tree);
-   std::cout << " ========================================= " << std::endl;
    
    return 0;
 }

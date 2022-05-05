@@ -3,6 +3,7 @@
 
 class Node {
    friend class Tree;
+   friend class BST;
 private: 
    int m_value;
    int m_height;
