@@ -219,3 +219,77 @@ bool Tree::is_balanced_binary(Node *node) {
    return false;
 }
 
+// ======================================================================
+Tree *create_tree(Tree_Type my_type) {
+   Tree *my_tree = new Tree;
+   my_tree->create_tree(my_tree, my_type);
+   return my_tree;
+}
+
+void delete_tree(Tree my_tree) {
+   Node *my_root = my_tree.get_root();
+   int my_root_value = my_tree.get_root_value();
+   my_tree.delete_tree(my_root, my_root_value);
+}
+
+void check_tree_type(Tree_Type my_type, Tree &my_tree) {
+   Node *my_root = my_tree.get_root();
+   bool my_check;
+   int my_height;
+
+   my_height = my_tree.get_height(my_root);
+   std::cout << "Tree height is " << my_height << std::endl;
+
+   switch (my_type) {
+      case Full_BT: {
+         my_check = my_tree.is_full_binary(my_root);
+         if (my_check == true) {
+            std::cout << "This is a full binary tree" << std::endl;
+         } else {
+            std::cout << "This is NOT a full binary tree" << std::endl;
+         }
+         break;
+      }
+
+      case Perfect_BT: {
+         int my_height_left = my_tree.get_height_left_most_node(my_root);
+         my_check = my_tree.is_perfect_binary(my_root, my_height_left);
+         if (my_check == true) {
+            std::cout << "This is a perfect binary tree" << std::endl;
+         } else {
+            std::cout << "This is NOT a perfect binary tree" << std::endl;
+         }
+         break;
+      }
+
+      case Complete_BT: {
+         int my_num_nodes = my_tree.get_num_nodes(my_root);
+         my_check = my_tree.is_complete_binary(my_root, my_num_nodes);
+         if (my_check == true) {
+            std::cout << "This is a complete binary tree" << std::endl;
+         } else {
+            std::cout << "This is NOT a complete binary tree" << std::endl;
+         }
+         break;
+      }
+
+      case Balanced_BT: {
+         my_check = my_tree.is_balanced_binary(my_root);
+         if (my_check == true) {
+            std::cout << "This is a balanced binary tree" << std::endl;
+         } else {
+            std::cout << "This is NOT a balanced binary tree" << std::endl;
+         }
+         break;
+      }
+
+      default: {
+         try {
+            throw "Unknow tree type";
+         }
+         catch (std::string e) {
+            std::cout << "An exception occurred. Exception: " << e << std::endl;
+         }
+      }
+   }
+}

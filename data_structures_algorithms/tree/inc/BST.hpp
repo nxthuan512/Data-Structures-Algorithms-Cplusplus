@@ -22,5 +22,7 @@ public:
    bool is_binary_search_tree(Node *node);
 };
 
+BST *create_bst();
+void check_bst(BST &bst);
 
 #endif /* BST_HPP */

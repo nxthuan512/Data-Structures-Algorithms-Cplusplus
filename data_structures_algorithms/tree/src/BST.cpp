@@ -102,3 +102,20 @@ bool BST::is_binary_search_tree(Node *node) {
    }
    return (is_balanced_binary(node->m_left) && is_balanced_binary(node->m_right));
 }
+
+// ==============================================================
+BST *create_bst() {
+   BST *my_tree = new BST;
+   my_tree->create_tree(my_tree);
+   return my_tree;
+}
+
+void check_bst (BST &my_tree) {
+   Node *my_root = my_tree.get_root();
+   bool my_check = my_tree.is_binary_search_tree(my_root);
+   if (my_check == true) {
+      std::cout << "This is a binary search tree" << std::endl;
+   } else {
+      std::cout << "This is NOT a binary search tree" << std::endl;
+   }
+}

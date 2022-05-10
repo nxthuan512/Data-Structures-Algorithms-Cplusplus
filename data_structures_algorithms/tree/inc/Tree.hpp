@@ -47,7 +47,11 @@ public:
    bool is_complete_binary(Node *node, int my_num_nodes, int my_index = 0);
    // check if tree is balanced binary tree
    bool is_balanced_binary(Node *node);
+
 };
 
+Tree *create_tree(Tree_Type my_type);
+void delete_tree(Tree my_tree);
+void check_tree_type(Tree_Type my_type, Tree &my_tree);
 
 #endif /* TREE_HPP */
