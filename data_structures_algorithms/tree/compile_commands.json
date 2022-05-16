@@ -12,49 +12,11 @@
             "-g",
             "-Iinc",
             "-o",
-            "obj/AVL.o",
-            "src/AVL.cpp"
+            "obj/Tree.o",
+            "src/Tree.cpp"
         ],
         "directory": "/home/nxthuan512/xt_projects/cpp_and_dsa/data_structures_algorithms/tree",
-        "file": "src/AVL.cpp"
-    },
-    {
-        "arguments": [
-            "g++",
-            "-c",
-            "-Wunused",
-            "-Wall",
-            "-Wextra",
-            "-Wshadow",
-            "-Wnon-virtual-dtor",
-            "-pedantic",
-            "-g",
-            "-Iinc",
-            "-o",
-            "obj/BST.o",
-            "src/BST.cpp"
-        ],
-        "directory": "/home/nxthuan512/xt_projects/cpp_and_dsa/data_structures_algorithms/tree",
-        "file": "src/BST.cpp"
-    },
-    {
-        "arguments": [
-            "g++",
-            "-c",
-            "-Wunused",
-            "-Wall",
-            "-Wextra",
-            "-Wshadow",
-            "-Wnon-virtual-dtor",
-            "-pedantic",
-            "-g",
-            "-Iinc",
-            "-o",
-            "obj/main.o",
-            "src/main.cpp"
-        ],
-        "directory": "/home/nxthuan512/xt_projects/cpp_and_dsa/data_structures_algorithms/tree",
-        "file": "src/main.cpp"
+        "file": "src/Tree.cpp"
     },
     {
         "arguments": [
@@ -88,10 +50,86 @@
             "-g",
             "-Iinc",
             "-o",
-            "obj/Tree.o",
-            "src/Tree.cpp"
+            "obj/BST.o",
+            "src/BST.cpp"
         ],
         "directory": "/home/nxthuan512/xt_projects/cpp_and_dsa/data_structures_algorithms/tree",
-        "file": "src/Tree.cpp"
+        "file": "src/BST.cpp"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-Wunused",
+            "-Wall",
+            "-Wextra",
+            "-Wshadow",
+            "-Wnon-virtual-dtor",
+            "-pedantic",
+            "-g",
+            "-Iinc",
+            "-o",
+            "obj/Node_RBT.o",
+            "src/Node_RBT.cpp"
+        ],
+        "directory": "/home/nxthuan512/xt_projects/cpp_and_dsa/data_structures_algorithms/tree",
+        "file": "src/Node_RBT.cpp"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-Wunused",
+            "-Wall",
+            "-Wextra",
+            "-Wshadow",
+            "-Wnon-virtual-dtor",
+            "-pedantic",
+            "-g",
+            "-Iinc",
+            "-o",
+            "obj/main.o",
+            "src/main.cpp"
+        ],
+        "directory": "/home/nxthuan512/xt_projects/cpp_and_dsa/data_structures_algorithms/tree",
+        "file": "src/main.cpp"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-Wunused",
+            "-Wall",
+            "-Wextra",
+            "-Wshadow",
+            "-Wnon-virtual-dtor",
+            "-pedantic",
+            "-g",
+            "-Iinc",
+            "-o",
+            "obj/RBT.o",
+            "src/RBT.cpp"
+        ],
+        "directory": "/home/nxthuan512/xt_projects/cpp_and_dsa/data_structures_algorithms/tree",
+        "file": "src/RBT.cpp"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-Wunused",
+            "-Wall",
+            "-Wextra",
+            "-Wshadow",
+            "-Wnon-virtual-dtor",
+            "-pedantic",
+            "-g",
+            "-Iinc",
+            "-o",
+            "obj/AVL.o",
+            "src/AVL.cpp"
+        ],
+        "directory": "/home/nxthuan512/xt_projects/cpp_and_dsa/data_structures_algorithms/tree",
+        "file": "src/AVL.cpp"
     }
 ]

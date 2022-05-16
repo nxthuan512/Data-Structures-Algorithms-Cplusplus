@@ -5,7 +5,7 @@ class Node {
    friend class Tree;
    friend class BST;
    friend class AVL;
-private: 
+protected: 
    int m_value;
    int m_height;
    Node *m_left;

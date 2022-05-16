@@ -1,5 +1,4 @@
 #include "main.hpp"
-#include "AVL.hpp"
 #include <iostream>
 
 
@@ -37,12 +36,12 @@ int main() {
    // delete_tree(*my_bst);
    // std::cout << " ========================================= " << std::endl;
 
-   AVL *my_avl = create_avl();
-   // check_avl(*my_avl);
-   // my_tree->avl_delete_node(my_tree->get_root(), 4);
-   // my_tree->avl_delete_node(my_tree->get_root(), 10);
-   // my_tree->avl_delete_node(my_tree->get_root(), 3);
-   delete_tree(*my_avl);
+   // AVL *my_avl = create_avl();
+   // delete_tree(*my_avl);
+   // std::cout << " ========================================= " << std::endl;
+
+   RBT *my_rbt = create_rbt();
+   delete_tree(*my_rbt);
    std::cout << " ========================================= " << std::endl;
    
    return 0;

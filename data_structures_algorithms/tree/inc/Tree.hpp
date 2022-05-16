@@ -12,7 +12,7 @@ enum Tree_Type {Full_BT,
                 AVL_Tree,
                 B_Tree,
                 Bplus_Tree,
-                Black_Red_Tree};
+                Red_Black_Tree};
 
 class Tree {
 protected:

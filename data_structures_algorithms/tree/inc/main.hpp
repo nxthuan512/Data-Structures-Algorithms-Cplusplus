@@ -4,6 +4,7 @@
 #include "Tree.hpp"
 #include "BST.hpp"
 #include "AVL.hpp"
+#include "RBT.hpp"
 
 
 
