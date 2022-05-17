@@ -22,11 +22,22 @@ void RBT::create_tree(RBT *tree) {
    // insert_node(tree->m_node, 4);
 }
 
-// Node_RBT *insert_node(Node_RBT *node, int value) {
-//    if (node == nullptr) {
-//       return 
-//    }
-// }
+
+Node_RBT *RBT::insert_node(Node_RBT *node, int value) {
+   // Insert node
+   // if (node == nullptr) {
+   //    return node->create_node(value, Red, nullptr);
+   // } else if (node->m_value > value) {
+   //    node->m_left = insert_node(node->m_left, value);
+   //    node->m_left->m_parent = node;
+   // } else if (node->m_value < value) {
+   //    node->m_right = insert_node(node->m_right, value);
+   //    node->m_right->m_parent = node;
+   // }
+
+   // Check aunt node
+
+}
 
 // ==============================================================
 RBT *create_rbt() {

@@ -5,6 +5,7 @@ class Node {
    friend class Tree;
    friend class BST;
    friend class AVL;
+   friend class RBT;
 protected: 
    int m_value;
    int m_height;

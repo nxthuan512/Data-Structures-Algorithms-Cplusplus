@@ -11,6 +11,7 @@ AVL::~AVL() = default;
 // =======================================================
 void AVL::create_tree(AVL *tree) {
    std::cout << "Create a AVL TREE" << std::endl;
+   tree->m_node = nullptr;
    tree->m_node = insert_node(tree->m_node, 33);
    tree->m_node = insert_node(tree->m_node, 13);
    tree->m_node = insert_node(tree->m_node, 53);

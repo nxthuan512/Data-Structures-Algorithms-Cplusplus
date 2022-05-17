@@ -62,9 +62,9 @@ int Tree::get_num_nodes(Node *node) {
 // =======================================================
 // Create/Delete/Insert Node
 // =======================================================
-Node *Tree::create_node(int value, int heigth) {
+Node *Tree::create_node(int value, int height) {
    std::cout << "Create a node: value=" << value << std::endl;
-   Node *new_node = new Node {value, heigth};
+   Node *new_node = new Node {value, height};
    return new_node; 
 }
 
