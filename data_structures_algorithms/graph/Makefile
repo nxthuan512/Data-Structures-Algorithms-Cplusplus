@@ -19,7 +19,7 @@ LIBS        =-lm
 PROG_NAME   = main
 
 # Define depedencies *.hpp
-_DEPS       = $(PROG_NAME).hpp
+_DEPS       = $(PROG_NAME).hpp Graph.hpp
 DEPS        = $(patsubst %,$(INCDIR)/%,$(_DEPS))
 # Define objects *.o
 _OBJ        = $(PROG_NAME).o 
