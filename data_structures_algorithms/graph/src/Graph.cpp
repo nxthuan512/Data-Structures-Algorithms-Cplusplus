@@ -4,8 +4,8 @@
 // Constructor
 Graph::Graph(int n_vertices, int n_edges) 
 : m_nv {n_vertices}, m_ne {n_edges}{
-   // Initialize graph based on the number of virtices
-   std::cout << "XT_DEBUG: #vertices=" << m_nv << " #edges=" << m_ne << std::endl;
+   // Initialize graph based on the number of vertices
+   // std::cout << "XT_DEBUG: #vertices=" << m_nv << " #edges=" << m_ne << std::endl;
    std::list<int> empty_list;
    for (int v = 0; v < m_nv; ++v) {
       m_graph.push_back(empty_list);
@@ -17,7 +17,7 @@ Graph::~Graph() = default;
 
 // Add edge to graph
 void Graph::add_edge(int src_v, int dest_v, bool bidir) {
-   std::cout << "XT_DEBUG: Add edge: src=" << src_v << " dest=" << dest_v << std::endl;
+   // std::cout << "XT_DEBUG: Add edge: src=" << src_v << " dest=" << dest_v << std::endl;
    m_graph[src_v].push_back(dest_v);
    if (bidir) {
       m_graph[dest_v].push_back(src_v);
