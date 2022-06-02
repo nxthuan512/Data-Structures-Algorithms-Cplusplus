@@ -22,7 +22,7 @@ PROG_NAME   = main
 _DEPS       = $(PROG_NAME).hpp Graph.hpp
 DEPS        = $(patsubst %,$(INCDIR)/%,$(_DEPS))
 # Define objects *.o
-_OBJ        = $(PROG_NAME).o 
+_OBJ        = $(PROG_NAME).o Graph.o
 OBJ         = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 # Generate all *.o files

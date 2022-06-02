@@ -12,6 +12,25 @@
             "-g",
             "-Iinc",
             "-o",
+            "obj/Graph.o",
+            "src/Graph.cpp"
+        ],
+        "directory": "/home/nxthuan512/xt_projects/cpp_and_dsa/data_structures_algorithms/graph",
+        "file": "src/Graph.cpp"
+    },
+    {
+        "arguments": [
+            "g++",
+            "-c",
+            "-Wunused",
+            "-Wall",
+            "-Wextra",
+            "-Wshadow",
+            "-Wnon-virtual-dtor",
+            "-pedantic",
+            "-g",
+            "-Iinc",
+            "-o",
             "obj/main.o",
             "src/main.cpp"
         ],
