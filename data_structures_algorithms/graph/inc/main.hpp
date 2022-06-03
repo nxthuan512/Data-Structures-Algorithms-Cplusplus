@@ -3,7 +3,7 @@
 
 #include "Graph.hpp"
 
-Graph initialize_graph(int n_vertices);
+Graph *initialize_graph(int n_vertices);
 
 
 #endif /* MAIN_HPP */
