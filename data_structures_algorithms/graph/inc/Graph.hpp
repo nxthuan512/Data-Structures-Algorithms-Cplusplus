@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include <queue>
 #include <list>
 
 class Graph {
@@ -20,7 +21,7 @@ public:
    // Graph algorithms
    void reset_visited();
    void deep_first_search(int current_vertex);
-   void breadth_first_search();
+   void breadth_first_search(int current_vertex);
    void min_spanning_tree();
    void strongly_connected_components();
 };

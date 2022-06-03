@@ -58,3 +58,22 @@ void Graph::deep_first_search(int current_vertex) {
       }
    } 
 }
+
+void Graph::breadth_first_search(int current_vertex) {
+   std::queue<int> my_queue;
+   my_queue.push(current_vertex);
+   m_visited[current_vertex] = 1;
+
+   while (!my_queue.empty()) {
+      int queue_vertex = my_queue.front();
+      my_queue.pop();
+      std::cout << "Visited vertex: " << queue_vertex << std::endl;
+
+      for (const auto &v : m_graph[queue_vertex]) {
+         if (m_visited[v] == 0) {
+            my_queue.push(v);
+            m_visited[v] = 1;
+         }
+      }
+   }
+}
