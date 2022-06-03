@@ -9,6 +9,7 @@ Graph::Graph(int n_vertices, int n_edges)
    std::list<int> empty_list;
    for (int v = 0; v < m_nv; ++v) {
       m_graph.push_back(empty_list);
+      m_visited.push_back(0);
    }
 }
 
@@ -26,12 +27,34 @@ void Graph::add_edge(int src_v, int dest_v, bool bidir) {
 
 // Print graph
 void Graph::print_all() {
+   std::cout << "=============================================" << std::endl;
+   std::cout << "Calling print_all()" << std::endl;
+   std::cout << "=============================================" << std::endl;
    for (int v = 0; v < m_nv; ++v) {
       std::cout << "Number of edges at vertex " << v << ": " << m_graph[v].size() << std::endl;
       std::cout << v << " -> ";
-      for (const auto e : m_graph[v]) {
+      for (const auto &e : m_graph[v]) {
          std::cout << e << " "; 
       }
       std::cout << std::endl;
    }
+}
+
+// ======================================================
+void Graph::reset_visited() {
+   for (auto &v : m_visited) {
+      v = 0;
+   }
+}
+
+void Graph::deep_first_search(int current_vertex) {
+   // Base case
+   m_visited[current_vertex] = 1;
+   std::cout << "Visited vertex: " << current_vertex << std::endl;
+   //
+   for (const auto &v : m_graph[current_vertex]) {
+      if (m_visited[v] == 0) {
+         Graph::deep_first_search(v);
+      }
+   } 
 }
