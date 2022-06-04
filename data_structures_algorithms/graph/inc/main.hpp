@@ -3,9 +3,9 @@
 
 #include "Graph.hpp"
 
-Graph *initialize_graph(int n_vertices);
-void test_DFS(Graph *simple_graph);
-void test_BFS(Graph *simple_graph);
+Graph *initialize_nodir_graph(int n_vertices);
+void test_DFS();
+void test_BFS();
 
 
 #endif /* MAIN_HPP */

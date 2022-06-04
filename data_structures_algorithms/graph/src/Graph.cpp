@@ -17,10 +17,10 @@ Graph::Graph(int n_vertices, int n_edges)
 Graph::~Graph() = default;
 
 // Add edge to graph
-void Graph::add_edge(int src_v, int dest_v, bool bidir) {
+void Graph::add_edge(int src_v, int dest_v, int direction) {
    // std::cout << "XT_DEBUG: Add edge: src=" << src_v << " dest=" << dest_v << std::endl;
    m_graph[src_v].push_back(dest_v);
-   if (bidir) {
+   if (direction == 0) {
       m_graph[dest_v].push_back(src_v);
    }
 }

@@ -15,7 +15,8 @@ private:
 public:
    Graph(int n_vertices = 0, int n_edges = 0);
    ~Graph();
-   void add_edge(int src_v, int dest_v, bool bidir = true);
+   // 0: undirectional; 1: directional, 2: bidrectional
+   void add_edge(int src_v, int dest_v, int direction = 0);
    void print_all();
 
    // Graph algorithms
