@@ -6,7 +6,7 @@
 Graph *initialize_graph(int n_vertices, int directed = 0);
 void test_DFS();
 void test_BFS();
-void test_Spanning_Tree();
+void test_Strongly_Connected_Components();
 
 
 #endif /* MAIN_HPP */

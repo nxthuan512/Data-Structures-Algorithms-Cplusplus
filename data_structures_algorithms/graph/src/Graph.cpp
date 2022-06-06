@@ -9,6 +9,7 @@ Graph::Graph(int n_vertices, int n_edges)
    std::list<int> empty_list;
    for (int v = 0; v < m_nv; ++v) {
       m_graph.push_back(empty_list);
+      m_trans_graph.push_back(empty_list);
       m_visited.push_back(0);
    }
 }
@@ -55,6 +56,9 @@ void Graph::deep_first_search(int current_vertex) {
    for (const auto &v : m_graph[current_vertex]) {
       if (m_visited[v] == 0) {
          Graph::deep_first_search(v);
+         // Save the orders to vector
+         m_saved_order.push_back(v);
+         std::cout << "XT_DEBUG: DFS order: " << m_saved_order.back() << std::endl;
       }
    } 
 }
@@ -76,4 +80,19 @@ void Graph::breadth_first_search(int current_vertex) {
          }
       }
    }
+}
+
+void Graph::complete_saved_order(int start_vertex) {
+   m_saved_order.push_back(start_vertex);
+}
+
+void Graph::transpose_graph() {
+   for (int v = 0; v < m_nv; ++v) {
+      for (auto adj_v = m_graph[v].begin(); adj_v != m_graph[v].end(); ++adj_v) {
+         m_trans_graph[*adj_v].push_back(v);
+      }
+   }
+
+   m_graph.clear();
+   m_graph = m_trans_graph;
 }

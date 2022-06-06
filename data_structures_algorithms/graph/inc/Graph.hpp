@@ -11,13 +11,21 @@ private:
    int m_nv;
    int m_ne;
    std::vector<std::list<int>> m_graph;
+   std::vector<std::list<int>> m_trans_graph;
    std::vector<int> m_visited;
+   std::vector<int> m_saved_order;
 public:
    Graph(int n_vertices = 0, int n_edges = 0);
    ~Graph();
    // 0: undirected; 1: directed and/or weighted, 2: bidrected and/or weighted
    void add_edge(int src_v, int dest_v, int direction = 0);
    void print_all();
+
+   // Functions supports Graph algorithms
+   // Insert the start vertex to vector saved_order
+   void complete_saved_order(int start_vertex);
+   // Transpose the graph
+   void transpose_graph();
 
    // Graph algorithms
    void reset_visited();

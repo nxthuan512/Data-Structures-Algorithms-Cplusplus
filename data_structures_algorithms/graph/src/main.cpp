@@ -3,7 +3,7 @@
 int main() {
    // test_DFS();
    // test_BFS();
-   test_Spanning_Tree();
+   test_Strongly_Connected_Components();
 
    return 0;
 }
@@ -72,13 +72,19 @@ void test_BFS() {
 }
 
 
-void test_Spanning_Tree() {
+void test_Strongly_Connected_Components() {
    Graph *simple_graph = initialize_graph(8, 1);
    simple_graph->print_all();
 
    std::cout << "Calling DFS" << std::endl;
-   simple_graph->deep_first_search(0);
+   int start_vertex = 0;
+   simple_graph->deep_first_search(start_vertex);
+   simple_graph->complete_saved_order(start_vertex);
    simple_graph->reset_visited();
+
+   std::cout << "Transpose graph" << std::endl;
+   simple_graph->transpose_graph();
+   simple_graph->print_all();
 
    delete simple_graph;
 }
