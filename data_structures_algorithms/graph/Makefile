@@ -11,7 +11,7 @@ LDIR        = lib
 # Define OBJ dir storing *.o files
 ODIR        = obj
 # Define compiler and compiler flags
-CC          = g++
+CC          = clang++
 CFLAGS      = -Wunused -Wall -Wextra -Wshadow -Wnon-virtual-dtor -pedantic -g -I$(INCDIR)
 # Include math library -lm
 LIBS        =-lm
