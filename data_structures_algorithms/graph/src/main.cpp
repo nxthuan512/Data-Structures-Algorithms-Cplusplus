@@ -3,7 +3,8 @@
 int main() {
    // test_DFS();
    // test_BFS();
-   test_Strongly_Connected_Components();
+   // test_Strongly_Connected_Components();
+   test_Spanning_Tree();
 
    return 0;
 }
@@ -35,7 +36,15 @@ Graph *initialize_graph(int n_vertices, TestCase test_case) {
          simple_graph->add_edge(6, 7, 1);
          break;
       case STR:
-
+         simple_graph->add_edge(0, 1, 0, 4);
+         simple_graph->add_edge(0, 2, 0, 4);
+         simple_graph->add_edge(1, 2, 0, 2);
+         simple_graph->add_edge(2, 3, 0, 3);
+         simple_graph->add_edge(2, 4, 0, 2);
+         simple_graph->add_edge(2, 5, 0, 4);
+         simple_graph->add_edge(3, 5, 0, 3);
+         simple_graph->add_edge(4, 5, 0, 3);
+         break;
       default:;
    }
 
@@ -98,4 +107,10 @@ void test_Strongly_Connected_Components() {
    simple_graph->reset_visited();
 
    delete simple_graph;
+}
+
+
+void test_Spanning_Tree() {
+   Graph *simple_graph = initialize_graph(6, STR);
+   simple_graph->print_all();
 }

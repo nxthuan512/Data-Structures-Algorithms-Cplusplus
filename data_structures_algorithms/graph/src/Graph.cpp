@@ -35,7 +35,7 @@ void Graph::print_all() {
       std::cout << "Number of edges at vertex " << v << ": " << m_graph[v].size() << std::endl;
       std::cout << v << " -> ";
       for (const auto &e : m_graph[v]) {
-         std::cout << std::get<0>(e) << " "; 
+         std::cout << std::get<0>(e) << "(" << std::get<1>(e) << ") "; 
       }
       std::cout << std::endl;
    }
