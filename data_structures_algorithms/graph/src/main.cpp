@@ -34,6 +34,8 @@ Graph *initialize_graph(int n_vertices, TestCase test_case) {
          simple_graph->add_edge(6, 4, 1);
          simple_graph->add_edge(6, 7, 1);
          break;
+      case STR:
+
       default:;
    }
 
