@@ -3,10 +3,13 @@
 
 #include "Graph.hpp"
 
-Graph *initialize_graph(int n_vertices, int directed = 0);
+enum TestCase {DFS, BFS, SCC, STR};
+
+Graph *initialize_graph(int n_vertices, TestCase test_case);
 void test_DFS();
 void test_BFS();
 void test_Strongly_Connected_Components();
+void test_Spanning_Tree();
 
 
 #endif /* MAIN_HPP */

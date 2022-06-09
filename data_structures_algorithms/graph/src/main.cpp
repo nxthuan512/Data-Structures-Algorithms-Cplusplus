@@ -9,20 +9,21 @@ int main() {
 }
 
 // =========================================
-Graph *initialize_graph(int n_vertices, int directed) {
+Graph *initialize_graph(int n_vertices, TestCase test_case) {
    std::cout << "Initialize directed graph" << std::endl;
    Graph *simple_graph = new Graph(n_vertices, 0);
 
    // Test cases for DFS, BFS
-   switch (directed) {
-      case 0: 
+   switch (test_case) {
+      case DFS: 
+      case BFS: 
          simple_graph->add_edge(0, 1);
          simple_graph->add_edge(0, 2);
          simple_graph->add_edge(0, 3);
          simple_graph->add_edge(1, 2);
          simple_graph->add_edge(2, 4);
          break;
-      case 1:
+      case SCC:
          simple_graph->add_edge(0, 1, 1);
          simple_graph->add_edge(1, 2, 1);
          simple_graph->add_edge(2, 3, 1);
@@ -40,7 +41,7 @@ Graph *initialize_graph(int n_vertices, int directed) {
 }
 
 void test_DFS() {
-   Graph *simple_graph = initialize_graph(5);
+   Graph *simple_graph = initialize_graph(5, DFS);
    simple_graph->print_all();
 
    std::cout << "=============================================" << std::endl;
@@ -56,7 +57,7 @@ void test_DFS() {
 }
 
 void test_BFS() {
-   Graph *simple_graph = initialize_graph(5);
+   Graph *simple_graph = initialize_graph(5, BFS);
    simple_graph->print_all();
 
    std::cout << "=============================================" << std::endl;
@@ -73,7 +74,7 @@ void test_BFS() {
 
 
 void test_Strongly_Connected_Components() {
-   Graph *simple_graph = initialize_graph(8, 1);
+   Graph *simple_graph = initialize_graph(8, SCC);
    simple_graph->print_all();
 
    std::cout << "=============================================" << std::endl;
