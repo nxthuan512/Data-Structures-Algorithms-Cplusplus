@@ -23,13 +23,14 @@ public:
 
    // Functions supports Graph algorithms
    // Insert the start vertex to vector saved_order
-   void complete_saved_order(int start_vertex);
+   void fill_dfs_stack(int start_vertex);
    // Transpose the graph
    void transpose_graph();
 
    // Graph algorithms
    void reset_visited();
    void deep_first_search(int current_vertex);
+   void deep_first_search_directed_graph();
    void breadth_first_search(int current_vertex);
    void min_spanning_tree();
    void strongly_connected_components();

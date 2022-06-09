@@ -63,6 +63,16 @@ void Graph::deep_first_search(int current_vertex) {
    } 
 }
 
+void Graph::deep_first_search_directed_graph() {
+   std::cout << "Call DFS search on directed graph" << std::endl;
+   for (int v = 0; v < m_nv; ++v) {
+      if (m_visited[v] == 0) {
+         deep_first_search(v);
+         fill_dfs_stack(v);
+      }
+   }
+}
+
 void Graph::breadth_first_search(int current_vertex) {
    std::queue<int> my_queue;
    my_queue.push(current_vertex);
@@ -82,8 +92,9 @@ void Graph::breadth_first_search(int current_vertex) {
    }
 }
 
-void Graph::complete_saved_order(int start_vertex) {
+void Graph::fill_dfs_stack(int start_vertex) {
    m_saved_order.push_back(start_vertex);
+   std::cout << "XT_DEBUG: DFS order: " << m_saved_order.back() << std::endl;
 }
 
 void Graph::transpose_graph() {

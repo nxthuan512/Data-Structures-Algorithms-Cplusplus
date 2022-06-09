@@ -76,15 +76,23 @@ void test_Strongly_Connected_Components() {
    Graph *simple_graph = initialize_graph(8, 1);
    simple_graph->print_all();
 
+   std::cout << "=============================================" << std::endl;
    std::cout << "Calling DFS" << std::endl;
-   int start_vertex = 0;
-   simple_graph->deep_first_search(start_vertex);
-   simple_graph->complete_saved_order(start_vertex);
+   std::cout << "=============================================" << std::endl;
+   simple_graph->deep_first_search_directed_graph();
    simple_graph->reset_visited();
 
+   std::cout << "=============================================" << std::endl;
    std::cout << "Transpose graph" << std::endl;
+   std::cout << "=============================================" << std::endl;
    simple_graph->transpose_graph();
-   simple_graph->print_all();
+   // simple_graph->print_all();
+
+   std::cout << "=============================================" << std::endl;
+   std::cout << "Calling DFS on transposed graph" << std::endl;
+   std::cout << "=============================================" << std::endl;
+   simple_graph->deep_first_search_directed_graph();
+   simple_graph->reset_visited();
 
    delete simple_graph;
 }
