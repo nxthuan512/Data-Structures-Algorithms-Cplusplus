@@ -1,5 +1,7 @@
 #include "Graph.hpp"
+#include <algorithm>
 #include <iostream>
+#include <limits>
 
 // Constructor
 Graph::Graph(int n_vertices, int n_edges) 
@@ -110,4 +112,38 @@ void Graph::transpose_graph() {
 
    m_graph.clear();
    m_graph = m_trans_graph;
+}
+
+void Graph::min_spanning_tree(int start_vertex) {
+   int n_visited = 0;
+   int sum_weight = 0;
+   m_visited[start_vertex] = 1;
+
+   while (n_visited < m_nv - 1) {
+      int min_weight = std::numeric_limits<int>::max();
+      int saved_current_vertex = 0;
+      int saved_next_vertex = 0;
+
+      for (int current_vertex = 0; current_vertex < m_nv; ++current_vertex) {
+         if (m_visited[current_vertex] == 1) {
+            for (const auto &v : m_graph[current_vertex]) {
+               int next_vertex = std::get<0>(v);
+               int next_weight = std::get<1>(v);
+
+               if (m_visited[next_vertex] == 0 && next_weight > 0) {
+                  if (next_weight < min_weight) {
+                     min_weight = next_weight;
+                     saved_current_vertex = current_vertex;
+                     saved_next_vertex = next_vertex;
+                  }
+               }
+            }
+         }
+      }
+      std::cout << "XT_DEBUG: Select edge=(" << saved_current_vertex << ", " << saved_next_vertex << "), width=" << min_weight << std::endl;
+      m_visited[saved_next_vertex] = 1;
+      sum_weight += min_weight;
+      ++n_visited;
+   }
+   std::cout << "XT_DEBUG: Total weight = " << sum_weight << std::endl;
 }

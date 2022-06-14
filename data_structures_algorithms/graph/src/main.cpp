@@ -89,20 +89,18 @@ void test_Strongly_Connected_Components() {
    simple_graph->print_all();
 
    std::cout << "=============================================" << std::endl;
-   std::cout << "Calling DFS" << std::endl;
+   std::cout << "Find Strongly Connected Components" << std::endl;
    std::cout << "=============================================" << std::endl;
+
+   std::cout << "=== Calling DFS ===" << std::endl;
    simple_graph->deep_first_search_directed_graph();
    simple_graph->reset_visited();
 
-   std::cout << "=============================================" << std::endl;
-   std::cout << "Transpose graph" << std::endl;
-   std::cout << "=============================================" << std::endl;
+   std::cout << "=== Transpose graph ===" << std::endl;
    simple_graph->transpose_graph();
    // simple_graph->print_all();
 
-   std::cout << "=============================================" << std::endl;
-   std::cout << "Calling DFS on transposed graph" << std::endl;
-   std::cout << "=============================================" << std::endl;
+   std::cout << "=== Calling DFS on transposed graph ===" << std::endl;
    simple_graph->deep_first_search_directed_graph();
    simple_graph->reset_visited();
 
@@ -113,4 +111,9 @@ void test_Strongly_Connected_Components() {
 void test_Spanning_Tree() {
    Graph *simple_graph = initialize_graph(6, STR);
    simple_graph->print_all();
+
+   std::cout << "=============================================" << std::endl;
+   std::cout << "Find Minimum Spanning Tree" << std::endl;
+   std::cout << "=============================================" << std::endl;
+   simple_graph->min_spanning_tree(2);
 }

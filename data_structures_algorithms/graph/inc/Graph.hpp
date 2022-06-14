@@ -33,7 +33,7 @@ public:
    void deep_first_search(int current_vertex);
    void deep_first_search_directed_graph();
    void breadth_first_search(int current_vertex);
-   void min_spanning_tree();
+   void min_spanning_tree(int start_vertex);
    void strongly_connected_components();
 };
 
