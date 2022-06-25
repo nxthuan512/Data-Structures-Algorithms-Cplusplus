@@ -128,3 +128,88 @@ void Sort::merge_sort(std::vector<int> &vec, int start_idx, int end_idx, bool as
    }
 }
 
+// ========= Heap sort =========
+void Sort::heap_sort_heapify(std::vector<int> &vec, int index, bool ascending) {
+   int vec_size = vec.size();
+   int select_index = index;
+   int l = 2 * index + 1;
+   int r = 2 * index + 2;
+
+   if (ascending == true) {
+      if (l < vec_size && vec[l] < vec[select_index])
+         select_index = l;
+      if (r < vec_size && vec[r] < vec[select_index])
+         select_index = r;
+   } else {
+      if (l < vec_size && vec[l] > vec[select_index])
+         select_index = l;
+      if (r < vec_size && vec[r] > vec[select_index])
+         select_index = r;
+   }
+
+   if (select_index != index)
+   {
+      int tmp = vec[index];
+      vec[index] = vec[select_index];
+      vec[select_index] = tmp;
+      heap_sort_heapify(vec, select_index, ascending);
+   }
+}
+
+void Sort::heap_sort_insert(std::vector<int> &vec, int new_value, bool ascending) {
+   int vec_size = vec.size();
+
+   vec.push_back(new_value);
+   if (vec_size > 0) {
+      vec_size = vec.size();
+      // Ignore the leaf nodes (only run from all levels that are above leaf nodes)
+      for (int i = vec_size/2-1; i >= 0; --i) {
+         heap_sort_heapify(vec, i, ascending);
+      }
+   }
+}
+
+void Sort::heap_sort_delete(std::vector<int> &vec, int delete_value, bool ascending)
+{
+   int vec_size = vec.size();
+
+   for (int i = 0; i < vec_size; i++)
+   {
+      if (delete_value == vec[i]) {
+         // Swap the delete_value with the last value in the vector
+         int tmp = vec[i];
+         vec[i] = vec[vec_size-1];
+         vec[vec_size-1] = tmp;
+         break;
+      }
+   }
+
+   vec.pop_back();
+   for (int i = vec_size/2-1; i >= 0; --i)
+   {
+      heap_sort_heapify(vec, i, ascending);
+   }
+}
+
+void Sort::heap_sort(std::vector<int> &vec, bool ascending) {
+   std::vector<int> sorted_vec;
+
+   // Insert
+   for (const auto &v : vec) {
+      heap_sort_insert(sorted_vec, v, ascending);
+   }
+
+   // std::cout << "XT_DEBUG: Max-Heap" << std::endl;
+   // for (const auto &v: sorted_vec) {
+   //    std::cout << v << " ";
+   // }
+   // std::cout << std::endl;
+
+   // Delete for heap sort
+   vec.clear();
+   int vec_size = sorted_vec.size();
+   for (int i = 0; i < vec_size; ++i) {
+      vec.push_back(sorted_vec[0]);
+      heap_sort_delete(sorted_vec, sorted_vec[0], ascending);
+   }
+}

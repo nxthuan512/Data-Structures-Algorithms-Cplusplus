@@ -20,6 +20,11 @@ public:
    
    void merge_sort(std::vector<int> &vec, int start_idx, int end_idx, bool ascending=true);
    void merge_sort_merge_sorted_arrays(std::vector<int> &vec, int start_idx_1, int start_idx_2, int end_idx);
+
+   void heap_sort(std::vector<int> &vec, bool ascending=true);
+   void heap_sort_heapify(std::vector<int> &vec, int index, bool ascending=true);
+   void heap_sort_insert(std::vector<int> &vec, int new_value, bool ascending=true);
+   void heap_sort_delete(std::vector<int> &vec, int new_value, bool ascending=true);
 };
 
 

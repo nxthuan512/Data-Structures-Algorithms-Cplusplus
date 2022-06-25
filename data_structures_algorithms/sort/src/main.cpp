@@ -23,7 +23,8 @@ void test_sort(Sort_algo sort_algo, const std::vector<int> &vec_org, Sort &sort)
    std::vector<int> vec {vec_org};
    std::string sort_algo_str = (sort_algo == Bubble_Sort) ? "Bubble Sort" : 
                                (sort_algo == Quick_Sort)  ? "Quick Sort" : 
-                               (sort_algo == Merge_Sort)  ? "Merge Sort" : "STL";
+                               (sort_algo == Merge_Sort)  ? "Merge Sort" : 
+                               (sort_algo == Heap_Sort)   ? "Heap Sort" : "STL";
 
    std::cout << "XT_INFO: Sorting vector using " << sort_algo_str << " (ascending, length=" << vec.size() << ")" << std::endl;
    std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
@@ -34,6 +35,8 @@ void test_sort(Sort_algo sort_algo, const std::vector<int> &vec_org, Sort &sort)
       sort.quick_sort(vec, 0, vec.size());
    } else if (sort_algo == Merge_Sort) {
       sort.merge_sort(vec, 0, vec.size()-1);
+   } else if (sort_algo == Heap_Sort) {
+      sort.heap_sort(vec);
    } else if (sort_algo == STL) {
       std::sort(vec.begin(), vec.end());
    }
@@ -54,6 +57,7 @@ int main() {
    test_sort(Bubble_Sort, vec_org, sort);
    test_sort(Quick_Sort, vec_org, sort);
    test_sort(Merge_Sort, vec_org, sort);
+   test_sort(Heap_Sort, vec_org, sort);
    test_sort(STL, vec_org, sort);
    return 0;
 }
