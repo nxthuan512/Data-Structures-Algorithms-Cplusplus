@@ -1,0 +1,21 @@
+[
+    {
+        "arguments": [
+            "clang++",
+            "-c",
+            "-Wunused",
+            "-Wall",
+            "-Wextra",
+            "-Wshadow",
+            "-Wnon-virtual-dtor",
+            "-pedantic",
+            "-g",
+            "-Iinc",
+            "-o",
+            "obj/main.o",
+            "src/main.cpp"
+        ],
+        "directory": "/home/nxthuan512/xt_projects/cpp_and_dsa/test_infrastructure/doctest/simple_example",
+        "file": "src/main.cpp"
+    }
+]
